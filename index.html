@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>뉴스 마을</title>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -181,9 +182,19 @@
       position: relative;
       width: 100%;
       height: 100%;
+      min-width: 1280px;
+      min-height: 720px;
+      flex-shrink: 0;
     }
 
-    .map-wrap > img {
+    #screen-village,
+    #screen-city {
+      overflow: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .map-wrap > img:not(.city-arrow):not(.back-fab) {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -220,7 +231,7 @@
     #hs-cinema    .hs-building { width:  88%; height: 100%; left:  -4.0%; bottom:  7%; }
     #hs-lp        .hs-building { width:  79%; height:  77%; left:  14.5%; bottom: 14%; }
     #hs-council   .hs-building { width: 119%; height: 118%; left: -14.5%; bottom:-10%; }
-    #hs-culture   .hs-building { width:  76%; height:  92%; left:   1.0%; bottom: 12%; }
+    #hs-culture   .hs-building { width:  74%; height:  98%; left:   1.0%; bottom: 12%; }
     #hs-botanical .hs-building { width: 107%; height:  98%; left:   1.5%; bottom:  7%; }
     #hs-haunted   .hs-building { width: 101%; height: 101%; left:  -5.5%; bottom:  5%; }
     #hs-airport   .hs-building { width:  98%; height: 124%; left:  -7.0%; bottom:  2%; }
@@ -279,19 +290,23 @@
 
     .back-fab {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
       z-index: 20;
-      background: rgba(10,10,10,0.75);
-      color: #fff;
-      border: 2px solid #fff;
-      padding: 10px 16px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 8px;
       cursor: pointer;
-      transition: background 0.2s;
+      height: 100px !important;
+      width: auto !important;
+      object-fit: unset !important;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: filter 0.2s;
+      animation: village-bob 1.8s ease-in-out infinite;
     }
-    .back-fab:hover { background: rgba(255,255,255,0.15); }
+    .back-fab:hover { filter: brightness(1.15); }
+
+    @keyframes village-bob {
+      0%, 100% { margin-left: 0px; }
+      50%       { margin-left: 8px; }
+    }
 
     /* ── 도움말 버튼 ── */
     .help-fab {
@@ -407,57 +422,22 @@
     .city-arrow {
       position: absolute;
       right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: calc(50% - 50px);
       z-index: 20;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
       cursor: pointer;
+      height: 100px !important;
+      width: auto !important;
+      object-fit: unset !important;
       animation: arrow-bob 1.8s ease-in-out infinite;
     }
 
-    .city-arrow-sign {
-      background: #5a3a1a;
-      border: 3px solid #2a1a0a;
-      box-shadow: 3px 3px 0 #2a1a0a;
-      padding: 10px 16px 10px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-    }
-
-    .city-arrow-sign span {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 9px;
-      color: #fff8e0;
-      white-space: nowrap;
-      letter-spacing: 1px;
-    }
-
-    .city-arrow-sign .arrow-icon {
-      font-size: 16px;
-      color: #ffe566;
-      align-self: flex-end;
-    }
-
-    .city-arrow-post {
-      width: 8px;
-      height: 48px;
-      background: #5a3a1a;
-      border: 2px solid #2a1a0a;
-      border-top: none;
-    }
-
-    .city-arrow:hover .city-arrow-sign {
-      background: #7a5030;
+    .city-arrow:hover {
+      filter: brightness(1.15);
     }
 
     @keyframes arrow-bob {
-      0%, 100% { transform: translateY(-50%) translateX(0); }
-      50%       { transform: translateY(-50%) translateX(-6px); }
+      0%, 100% { margin-left: 0px; }
+      50%       { margin-left: -8px; }
     }
 
     /* ════════════════════════════════
@@ -1753,13 +1733,7 @@
       <div class="hs-label">비석 · 신문사 소개</div>
     </div>
 
-    <div class="city-arrow" onclick="goToCity()">
-      <div class="city-arrow-sign">
-        <span>시 내</span>
-        <span class="arrow-icon">→</span>
-      </div>
-      <div class="city-arrow-post"></div>
-    </div>
+    <img src="toCity.png" id="nav-to-city" class="city-arrow" onclick="goToCity()" alt="시내로" style="height:100px;width:auto;left:1474px;top:482px;right:auto;bottom:auto;">
 
     <div class="hotspot" id="hs-postbox" onclick="showMbook()">
       <img class="hs-building" src="post.png" alt="우체통">
@@ -1840,7 +1814,7 @@
       <div class="hs-label">공항 · 미정</div>
     </div>
 
-    <button class="back-fab" onclick="goToVillage()">← 마을로</button>
+    <img src="toVillage.png" id="nav-to-village" class="back-fab" onclick="goToVillage()" alt="마을로" style="height:100px;width:auto;left:calc(50% - 92px);top:calc(50% - 50px);right:auto;bottom:auto;">
     <button class="help-fab" onclick="openHelp()">?</button>
 
     <button id="edit-toggle-city" onclick="toggleEditMode('city')" style="
@@ -2314,6 +2288,27 @@
 </div>
 
 <script>
+  /* ── Supabase ── */
+  const SB_URL = 'https://xsrhxpfcypjadeeessuu.supabase.co';
+  const SB_KEY = 'sb_publishable_vU5iZlFhWsoGzVCJR1RjtQ_vVNTBL9L';
+  const supabase = window.supabase.createClient(SB_URL, SB_KEY);
+
+  async function syncToSupabase() {
+    if (!currentUser) return;
+    try {
+      await supabase.from('users').upsert({
+        kakao_id:   currentUser,
+        nickname:   localStorage.getItem('nv_nick_' + currentUser) || currentUser,
+        tree_level: parseInt(localStorage.getItem('nv_level_' + currentUser) || '0'),
+        given:      JSON.parse(localStorage.getItem('nv_given_' + currentUser) || '{"비료":0,"물":0,"양분":0}'),
+        last_check: new Date().toISOString().split('T')[0],
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'kakao_id' });
+    } catch(e) {
+      console.warn('Supabase 동기화 실패:', e);
+    }
+  }
+
   const screens = {
     login:      document.getElementById('screen-login'),
     mailbox:    document.getElementById('screen-mailbox'),
@@ -2393,6 +2388,7 @@
       localStorage.setItem('nv_user', id);
       localStorage.setItem('nv_nick_' + id, nickname);
       if (window.NV_AUTH) window.NV_AUTH.syncFromExisting();
+      syncToSupabase();
       Object.values(screens).forEach(s => s.classList.remove('active'));
       screens.mailbox.classList.add('active');
     })
@@ -2577,6 +2573,7 @@
     localStorage.setItem('nv_level_' + currentUser, Math.min(3, level + 1));
     localStorage.setItem('nv_lastcheck_' + currentUser, todayStr());
     updateTree();
+    syncToSupabase();
   }
 
   function feedSet() {
@@ -2826,39 +2823,43 @@
     return JSON.parse(localStorage.getItem(key) || '[]');
   }
 
-  function renderFriendCards() {
+  async function renderFriendCards() {
     const grid = document.getElementById('friends-grid');
-    const users = getAllRegisteredUsers();
+    grid.innerHTML = '<div class="friends-empty">불러오는 중…</div>';
 
-    if (users.length === 0) {
-      grid.innerHTML = '<div class="friends-empty">아직 등록된 친구가 없어요.<br>함께 뉴스를 읽어봐요!</div>';
-      return;
+    try {
+      const { data, error } = await supabase
+        .from('users')
+        .select('kakao_id, nickname, tree_level')
+        .order('tree_level', { ascending: false });
+
+      if (error) throw error;
+
+      if (!data || data.length === 0) {
+        grid.innerHTML = '<div class="friends-empty">아직 친구가 없어요.<br>카카오 로그인 후 뉴스를 읽으면 나타나요!</div>';
+        return;
+      }
+
+      grid.innerHTML = data.map(u => {
+        const level = u.tree_level || 0;
+        const isMe  = u.kakao_id === currentUser;
+        const treeHTML = level === 0
+          ? `<div class="friend-tree-empty">씨앗</div>`
+          : `<img src="${treeImages[level]}" alt="나무" style="max-height:88px; image-rendering:pixelated;">`;
+
+        return `
+          <div class="friend-card ${isMe ? 'is-me' : ''}">
+            ${isMe ? '<div class="friend-me-badge">나</div>' : ''}
+            <div class="friend-tree-area">${treeHTML}</div>
+            <div class="friend-name">${u.nickname || '익명'}</div>
+            <div class="friend-level">${treeLevels[level]}</div>
+            <div class="friend-reads">레벨 ${level} / 3</div>
+          </div>`;
+      }).join('');
+    } catch(e) {
+      console.error('친구 정원 로드 실패:', e);
+      grid.innerHTML = '<div class="friends-empty">불러오기 실패.<br>인터넷 연결을 확인해주세요.</div>';
     }
-
-    users.sort((a, b) => {
-      if (a === currentUser) return -1;
-      if (b === currentUser) return 1;
-      return a.localeCompare(b);
-    });
-
-    grid.innerHTML = users.map(user => {
-      const count = getUserFedCount(user);
-      const level = getTreeLevel(count);
-      const isMe = user === currentUser;
-
-      const treeHTML = level === 0
-        ? `<div class="friend-tree-empty">씨앗</div>`
-        : `<img src="${treeImages[level]}" alt="나무" style="max-height:88px; image-rendering:pixelated;">`;
-
-      return `
-        <div class="friend-card ${isMe ? 'is-me' : ''}">
-          ${isMe ? '<div class="friend-me-badge">나</div>' : ''}
-          <div class="friend-tree-area">${treeHTML}</div>
-          <div class="friend-name">${getNickname(user)}</div>
-          <div class="friend-level">${treeLevels[level]}</div>
-          <div class="friend-reads">${count} / 3 세트</div>
-        </div>`;
-    }).join('');
   }
 
   /* ── 나의 정원 진입 ── */
@@ -2965,10 +2966,11 @@
   let editTarget = null;
 
   const hotspotMap = {
-    village: ['hs-garden','hs-house','hs-library','hs-villhall','hs-monument','hs-postbox'],
+    village: ['hs-garden','hs-house','hs-library','hs-villhall','hs-monument','hs-postbox','nav-to-city'],
     city:    ['hs-council','hs-detective','hs-haunted','hs-airport',
-              'hs-culture','hs-lp','hs-cinema','hs-guest','hs-botanical']
+              'hs-culture','hs-lp','hs-cinema','hs-guest','hs-botanical','nav-to-village']
   };
+  const NAV_IDS = ['nav-to-city', 'nav-to-village'];
 
   function toggleEditMode(screen) {
     const wasOn = editMode && editTarget === screen;
@@ -2989,7 +2991,7 @@
     btn.textContent = '✏️ 편집 중…';
     btn.style.background = 'rgba(80,30,30,0.9)';
     document.getElementById('edit-panel').style.display = 'block';
-    hotspotMap[screen].forEach(id => enableDragResize(document.getElementById(id), screen));
+    hotspotMap[screen].forEach(id => { try { enableDragResize(document.getElementById(id), screen); } catch(e) { console.error('enableDragResize:', id, e); } });
     updateOutput(screen);
   }
 
@@ -2999,13 +3001,54 @@
     let lines = '';
     hotspotMap[screen].forEach(id => {
       const el = document.getElementById(id);
-      const l = (el.offsetLeft / W * 100).toFixed(1);
-      const t = (el.offsetTop  / H * 100).toFixed(1);
-      const w = (el.offsetWidth  / W * 100).toFixed(1);
-      const h = (el.offsetHeight / H * 100).toFixed(1);
-      lines += `#${id.padEnd(12)} { left:${l.padStart(5)}%; top:${t.padStart(5)}%; width:${w.padStart(5)}%; height:${h.padStart(5)}%; }\n`;
+      if (!el) return;
+      if (NAV_IDS.includes(id)) {
+        lines += `/* ${id} */  left:${el.offsetLeft}px; top:${el.offsetTop}px; height:${el.offsetHeight}px;\n`;
+      } else {
+        const l = (el.offsetLeft / W * 100).toFixed(1);
+        const t = (el.offsetTop  / H * 100).toFixed(1);
+        const w = (el.offsetWidth  / W * 100).toFixed(1);
+        const h = (el.offsetHeight / H * 100).toFixed(1);
+        lines += `#${id.padEnd(12)} { left:${l.padStart(5)}%; top:${t.padStart(5)}%; width:${w.padStart(5)}%; height:${h.padStart(5)}%; }\n`;
+      }
     });
     document.getElementById('edit-output').textContent = lines;
+  }
+
+  function saveNavPos(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const pos = {
+      left:   el.offsetLeft + 'px',
+      top:    el.offsetTop  + 'px',
+      height: el.offsetHeight + 'px'
+    };
+    localStorage.setItem('navpos-' + id, JSON.stringify(pos));
+    // 개별 속성만 업데이트 (cssText는 cursor:move 등 편집 모드 스타일 지움)
+    el.style.left   = pos.left;
+    el.style.top    = pos.top;
+    el.style.height = pos.height;
+    el.style.width  = 'auto';
+    el.style.right  = 'auto';
+    el.style.bottom = 'auto';
+  }
+
+  function loadNavPositions() {
+    NAV_IDS.forEach(id => {
+      const raw = localStorage.getItem('navpos-' + id);
+      if (!raw) return;
+      try {
+        const pos = JSON.parse(raw);
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.left   = pos.left;
+        el.style.top    = pos.top;
+        el.style.height = pos.height;
+        el.style.width  = 'auto';
+        el.style.right  = 'auto';
+        el.style.bottom = 'auto';
+      } catch(e) {}
+    });
   }
 
   function copyEditValues() {
@@ -3016,7 +3059,19 @@
   function enableDragResize(el, screen) {
     el.style.cursor = 'move';
     el.style.userSelect = 'none';
-    // 편집 모드 중 onclick 차단 (캡처 단계에서 클릭 이벤트 중단)
+    if (NAV_IDS.includes(el.id)) {
+      // getBoundingClientRect로 transform 포함한 실제 화면 위치 계산
+      el.style.animation = 'none';
+      const wrap = document.querySelector('#screen-' + screen + ' .map-wrap');
+      const rect = el.getBoundingClientRect();
+      const wrapRect = wrap.getBoundingClientRect();
+      const actualLeft = rect.left - wrapRect.left;
+      const actualTop  = rect.top  - wrapRect.top;
+      // CSS bottom/right를 inline auto로 완전히 비활성화
+      el.style.right = 'auto'; el.style.bottom = 'auto';
+      el.style.left = actualLeft + 'px'; el.style.top = actualTop + 'px';
+      el.style.width = 'auto';
+    }
     function blockClick(e) { e.stopImmediatePropagation(); e.preventDefault(); }
     el._blockClick = blockClick;
     el.addEventListener('click', blockClick, true);
@@ -3026,6 +3081,9 @@
   function disableDragResize(el) {
     el.style.cursor = '';
     el.style.userSelect = '';
+    if (NAV_IDS.includes(el.id)) {
+      el.style.animation = '';
+    }
     if (el._blockClick) {
       el.removeEventListener('click', el._blockClick, true);
       el._blockClick = null;
@@ -3036,18 +3094,33 @@
   function addDragResize(el, screen) {
     const wrap = document.querySelector('#screen-' + screen + ' .map-wrap');
 
-    // 리사이즈 핸들 추가
-    let handle = el.querySelector('.resize-handle');
+    const isNav = NAV_IDS.includes(el.id);
+
+    // nav img는 void element라 자식 추가 불가 → 핸들을 wrap에 붙임
+    const handleParent = isNav ? wrap : el;
+    const handleAttr   = isNav ? `data-nav="${el.id}"` : '';
+    let handle = isNav
+      ? wrap.querySelector(`.resize-handle[data-nav="${el.id}"]`)
+      : el.querySelector('.resize-handle');
     if (!handle) {
       handle = document.createElement('div');
       handle.className = 'resize-handle';
+      if (isNav) handle.dataset.nav = el.id;
       handle.style.cssText = `
-        position:absolute; right:0; bottom:0; width:14px; height:14px;
-        background:#aaf; cursor:se-resize; z-index:10;
+        position:absolute; width:18px; height:18px;
+        background:#aaf; cursor:se-resize; z-index:200;
         border-top:2px solid #558; border-left:2px solid #558;`;
-      el.appendChild(handle);
+      handleParent.appendChild(handle);
     }
     handle.style.display = 'block';
+
+    // nav 핸들 위치를 이미지 우하단에 맞춤
+    function syncHandle() {
+      if (!isNav) return;
+      handle.style.left = (el.offsetLeft + el.offsetWidth  - 9) + 'px';
+      handle.style.top  = (el.offsetTop  + el.offsetHeight - 9) + 'px';
+    }
+    syncHandle();
 
     // 드래그 이동
     function onDragStart(e) {
@@ -3058,11 +3131,13 @@
       function onMove(e) {
         el.style.left = Math.max(0, e.clientX - startX) + 'px';
         el.style.top  = Math.max(0, e.clientY - startY) + 'px';
+        syncHandle();
         updateOutput(editTarget);
       }
       function onUp() {
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', onUp);
+        if (isNav) saveNavPos(el.id);
       }
       document.addEventListener('mousemove', onMove);
       document.addEventListener('mouseup', onUp);
@@ -3073,25 +3148,30 @@
       e.preventDefault();
       e.stopPropagation();
       const startX = e.clientX, startY = e.clientY;
-      const startW = el.offsetWidth, startH = el.offsetHeight;
+      const startH = el.offsetHeight;
       function onMove(e) {
-        el.style.width  = Math.max(20, startW + e.clientX - startX) + 'px';
+        // 이미지 비율 유지: height만 조정
         el.style.height = Math.max(20, startH + e.clientY - startY) + 'px';
+        el.style.width  = isNav ? 'auto' : Math.max(20, el.offsetWidth + e.clientX - startX) + 'px';
+        syncHandle();
         updateOutput(editTarget);
       }
       function onUp() {
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', onUp);
+        if (isNav) saveNavPos(el.id);
       }
       document.addEventListener('mousemove', onMove);
       document.addEventListener('mouseup', onUp);
     }
 
-    // % → px 변환 (편집 시작 시)
-    el.style.left   = el.offsetLeft + 'px';
-    el.style.top    = el.offsetTop  + 'px';
-    el.style.width  = el.offsetWidth  + 'px';
-    el.style.height = el.offsetHeight + 'px';
+    // % → px 변환 (편집 시작 시, nav가 아닌 경우만)
+    if (!isNav) {
+      el.style.left   = el.offsetLeft + 'px';
+      el.style.top    = el.offsetTop  + 'px';
+      el.style.width  = el.offsetWidth  + 'px';
+      el.style.height = el.offsetHeight + 'px';
+    }
 
     el.addEventListener('mousedown', onDragStart);
     handle.addEventListener('mousedown', onResizeStart);
@@ -3099,13 +3179,17 @@
     return () => {
       el.removeEventListener('mousedown', onDragStart);
       handle.removeEventListener('mousedown', onResizeStart);
-      handle.style.display = 'none';
-      // px → % 복원
-      const W = wrap.offsetWidth, H = wrap.offsetHeight;
-      el.style.left   = (el.offsetLeft   / W * 100) + '%';
-      el.style.top    = (el.offsetTop    / H * 100) + '%';
-      el.style.width  = (el.offsetWidth  / W * 100) + '%';
-      el.style.height = (el.offsetHeight / H * 100) + '%';
+      if (isNav) {
+        handle.remove(); // wrap에 붙인 핸들 제거
+      } else {
+        handle.style.display = 'none';
+        // px → % 복원
+        const W = wrap.offsetWidth, H = wrap.offsetHeight;
+        el.style.left   = (el.offsetLeft   / W * 100) + '%';
+        el.style.top    = (el.offsetTop    / H * 100) + '%';
+        el.style.width  = (el.offsetWidth  / W * 100) + '%';
+        el.style.height = (el.offsetHeight / H * 100) + '%';
+      }
     };
   }
 
@@ -3122,7 +3206,7 @@
     'hs-cinema':     { w:  88, h: 100, x:-10,   bottom:  7 },
     'hs-lp':         { w:  79, h:  77, x:  4,   bottom: 14 },
     'hs-council':    { w: 119, h: 118, x: -5,   bottom:-10 },
-    'hs-culture':    { w:  88, h:  98, x:  0,   bottom:  5 },
+    'hs-culture':    { w:  74, h:  98, x:-12,   bottom: 12 },
     'hs-botanical':  { w: 107, h:  98, x:  5,   bottom:  7 },
     'hs-haunted':    { w: 101, h: 101, x: -5,   bottom:  5 },
     'hs-airport':    { w:  98, h: 124, x: -8,   bottom:  2 },
@@ -3733,6 +3817,7 @@
   function _init() {
     _injectStyles();
     window.NV_AUTH.init();
+    loadNavPositions();
   }
 
   if (document.readyState === 'loading') {
