@@ -253,12 +253,12 @@
     }
 
     /* ── Village hotspot positions ── */
-    #hs-garden     { left: 19.2%; top: 22.6%; width:  8.2%; height: 19.6%; }
-    #hs-house      { left:  5.7%; top: 22.1%; width: 14.2%; height: 22.8%; }
-    #hs-library    { left: 73.7%; top: 56.4%; width: 24.6%; height: 28.8%; }
-    #hs-villhall   { left: 71.0%; top: 21.0%; width: 27.8%; height: 32.4%; }
-    #hs-monument   { left:  6.4%; top: 56.8%; width: 18.5%; height: 29.1%; }
-    #hs-postbox    { left:  5.1%; top: 29.0%; width:  9.3%; height: 18.5%; }
+    #hs-garden     { left: 37%; top: 30%; width:  9%; height: 19.6%; }
+    #hs-house      { left:  26%; top: 25%; width: 11%; height: 20%; }
+    #hs-library    { left: 53%; top: 49%; width: 20%; height: 28.8%; }
+    #hs-villhall   { left: 54%; top: 20%; width: 17%; height: 32.4%; }
+    #hs-monument   { left:  27.5%; top: 44%; width: 18.5%; height: 29.1%; }
+    #hs-postbox    { left:  40.5%; top: 38.5%; width:  18%; height: 18.5%; }
 
     /* ── City hotspot positions (3×3 grid on background.png) ── */
     /* row 1 */
