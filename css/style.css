@@ -412,20 +412,20 @@
       position: absolute;
       z-index: 20;
       cursor: pointer;
-      height: 8% !important;
+      height: 12% !important;
       width: auto !important;
       object-fit: unset !important;
       animation: arrow-bob 1.8s ease-in-out infinite;
     }
 
     #nav-to-city {
-      left: 83.8%;
-      top: 50.4%;
+      left: 74%;
+      top: 43%;
     }
 
     #nav-to-village {
       left: 1.25%;
-      top: 36.5%;
+      top: 30.5%;
     }
 
     .city-arrow:hover {
