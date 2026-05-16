@@ -181,8 +181,8 @@
         <button class="mh-btn" id="friend-back-village" onclick="friendsGoBack()">← 마을로</button>
         <button class="mh-btn" id="friend-back-list" onclick="loadFriendsListView()" style="display:none;">← 목록으로</button>
       </div>
-      <div id="friend-view-content" style="display:flex; flex-direction:column; align-items:center; gap:16px; padding:20px;"></div>
-      <div id="friend-add-section" style="display:none; text-align:center; padding:0 20px 20px;">
+      <div id="friend-view-content" style="display:flex; flex-direction:column; flex:1; min-height:0;"></div>
+      <div id="friend-add-section" style="display:none;">
         <button class="mh-btn primary" id="friend-add-btn" onclick="addFriend(window._viewingFriendId)">+ 친구 추가</button>
       </div>
     </div>

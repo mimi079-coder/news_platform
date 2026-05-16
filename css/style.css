@@ -702,6 +702,62 @@
       line-height: 2.2;
     }
 
+    /* ── 친구 단일 뷰 트리/정보 영역 ── */
+    .fv-tree-wrap {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 0;
+      padding: 24px 20px 12px;
+    }
+
+    .fv-tree-wrap img {
+      image-rendering: pixelated;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .fv-seed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 56px;
+      padding-bottom: 20px;
+    }
+
+    .fv-seed span {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 8px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+    }
+
+    .fv-info-panel {
+      background: rgba(40, 25, 5, 0.88);
+      backdrop-filter: blur(2px);
+      border-top: 2px solid rgba(168, 240, 160, 0.2);
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    #friend-add-section {
+      background: rgba(40, 25, 5, 0.88);
+      border-top: 1px solid rgba(168, 240, 160, 0.12);
+      padding: 10px 24px 18px;
+      flex-shrink: 0;
+    }
+
+    #friend-add-btn {
+      width: 100%;
+      display: block;
+    }
+
     /* ════════════════════════════════
        SCREEN · 나의 집
     ════════════════════════════════ */

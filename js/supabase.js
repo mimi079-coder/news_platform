@@ -101,8 +101,8 @@ export async function loadFriendView(kakaoId, fromList = false) {
 
   const backVillage = document.getElementById('friend-back-village');
   const backList    = document.getElementById('friend-back-list');
-  if (backVillage) backVillage.style.display = fromList ? 'none' : '';
-  if (backList)    backList.style.display    = fromList ? '' : 'none';
+  if (backVillage) backVillage.style.display = fromList ? 'none' : 'block';
+  if (backList)    backList.style.display    = fromList ? 'block' : 'none';
 
   const addSection = document.getElementById('friend-add-section');
   if (addSection) addSection.style.display = 'none';
@@ -117,7 +117,7 @@ export async function loadFriendView(kakaoId, fromList = false) {
     if (error || !d) {
       document.getElementById('friend-view-title').textContent = '친구의 정원';
       document.getElementById('friend-view-content').innerHTML =
-        '<div style="color:#fff;font-family:\'Press Start 2P\',monospace;font-size:10px;">존재하지 않는 친구예요.</div>';
+        '<div class="fv-tree-wrap" style="align-items:center;color:#aaa;font-family:\'Press Start 2P\',monospace;font-size:9px;letter-spacing:1px;">존재하지 않는 친구예요.</div>';
       return;
     }
 
@@ -126,14 +126,19 @@ export async function loadFriendView(kakaoId, fromList = false) {
     const sizes = [0, 200, 320, 420];
     const names = ['묘목', '작은 나무', '중간 나무', '가장 큰 나무'];
     const treeHTML = level === 0
-      ? '<div style="color:#aaa;font-size:12px;">아직 씨앗 상태예요 🌱</div>'
+      ? '<div class="fv-seed">🌱<br><span>아직 씨앗 상태예요</span></div>'
       : `<img src="${imgs[level]}" height="${sizes[level]}" alt="나무" style="image-rendering:pixelated;">`;
 
     document.getElementById('friend-view-title').textContent = (d.nickname || '친구') + '님의 정원';
     document.getElementById('friend-view-content').innerHTML =
-      `<div class="mh-tree" style="position:relative;width:280px;height:280px;display:flex;align-items:flex-end;justify-content:center;">${treeHTML}</div>` +
-      `<div class="mh-level-badge">${names[level]}</div>` +
-      `<div style="color:#aaa;font-family:'Press Start 2P',monospace;font-size:9px;">레벨 ${level} / 3</div>`;
+      `<div class="fv-tree-wrap">${treeHTML}</div>` +
+      `<div class="fv-info-panel">` +
+        `<div class="mh-level-badge">${names[level]}</div>` +
+        `<div class="mh-progress-row">` +
+          `<div class="mh-progress-label">레벨 ${level} / 3</div>` +
+          `<div class="mh-progress-bar"><div class="mh-progress-fill" style="width:${(level / 3 * 100).toFixed(0)}%"></div></div>` +
+        `</div>` +
+      `</div>`;
 
     const currentUser = window.appState?.currentUser;
     if (currentUser && currentUser !== kakaoId && addSection) {
@@ -151,7 +156,7 @@ export async function loadFriendView(kakaoId, fromList = false) {
     }
   } catch(err) {
     document.getElementById('friend-view-content').innerHTML =
-      '<div style="color:#fff;font-size:11px;">불러오기 실패.</div>';
+      '<div class="fv-tree-wrap" style="align-items:center;color:#aaa;font-family:\'Press Start 2P\',monospace;font-size:9px;">불러오기 실패.</div>';
   }
 }
 
