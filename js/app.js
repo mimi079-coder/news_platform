@@ -240,7 +240,7 @@ function logout() {
   window.appState.currentUser = null;
   localStorage.removeItem('nv_user');
   if (readObserver) { readObserver.disconnect(); readObserver = null; }
-  switchTo('login');
+  location.reload();
 }
 window.logout = logout;
 
