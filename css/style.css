@@ -552,14 +552,25 @@
        SCREEN · 나의 정원
     ════════════════════════════════ */
     #screen-myhouse {
-      background: url('../garden.png') center/cover no-repeat;
+      background: none;
     }
 
     /* ════════════════════════════════
        SCREEN · 친구 정원
     ════════════════════════════════ */
     #screen-friends {
-      background: url('../garden.png') center/cover no-repeat;
+      background: none;
+    }
+
+    .garden-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      pointer-events: none;
     }
 
     #friend-single-view, #friends-list-view {
