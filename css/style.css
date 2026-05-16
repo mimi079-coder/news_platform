@@ -410,14 +410,22 @@
 
     .city-arrow {
       position: absolute;
-      right: 0;
-      top: calc(50% - 50px);
       z-index: 20;
       cursor: pointer;
-      height: 100px !important;
+      height: 8% !important;
       width: auto !important;
       object-fit: unset !important;
       animation: arrow-bob 1.8s ease-in-out infinite;
+    }
+
+    #nav-to-city {
+      left: 83.8%;
+      top: 50.4%;
+    }
+
+    #nav-to-village {
+      left: 1.25%;
+      top: 36.5%;
     }
 
     .city-arrow:hover {
