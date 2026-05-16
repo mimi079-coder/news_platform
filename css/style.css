@@ -2,7 +2,7 @@
 
     body {
       font-family: 'Nanum Gothic', sans-serif;
-      background: #0d0d1a;
+      background: url('../log_background.png') center/150% no-repeat fixed;
       color: #fff;
       overflow: hidden;
       height: 100vh;
@@ -39,8 +39,8 @@
     .village-bg {
       position: absolute;
       inset: 0;
-      background: url('village_background.png') center/cover no-repeat;
-      filter: brightness(0.35) blur(3px);
+      background: url('../log_background.png') center/150% no-repeat;
+      filter: brightness(0.6) blur(2px);
       transform: scale(1.05);
     }
 
@@ -194,7 +194,7 @@
     /* ── Hotspot ── */
     .hotspot {
       position: absolute;
-      cursor: pointer;
+      pointer-events: none;
     }
 
     .hs-building {
@@ -205,11 +205,12 @@
       height: 88%;
       object-fit: contain;
       object-position: bottom center;
-      pointer-events: none;
+      pointer-events: auto;
+      cursor: pointer;
       transition: transform 0.18s, filter 0.18s;
     }
 
-    .hotspot:hover .hs-building {
+    .hs-building:hover {
       transform: scale(1.06);
       filter: drop-shadow(0 0 10px rgba(255, 240, 80, 0.85));
     }
@@ -230,27 +231,7 @@
     #bld-panel label { display:flex; flex-direction:column; gap:4px; color:#fed; font-size:10px; }
     #bld-panel input[type=range] { width:100%; accent-color:#fa8; }
 
-    .hs-label {
-      position: absolute;
-      bottom: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%) translateY(4px);
-      background: rgba(10,10,10,0.85);
-      color: #fff;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 7px;
-      padding: 5px 9px;
-      white-space: nowrap;
-      border-radius: 2px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.18s, transform 0.18s;
-    }
-
-    .hotspot:hover .hs-label {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .hs-label { display: none; }
 
     /* ── Village hotspot positions ── */
     #hs-garden     { left: 37%; top: 30%; width:  9%; height: 19.6%; }
@@ -571,14 +552,14 @@
        SCREEN · 나의 정원
     ════════════════════════════════ */
     #screen-myhouse {
-      background: url('garden.png') center/cover no-repeat;
+      background: url('../garden.png') center/cover no-repeat;
     }
 
     /* ════════════════════════════════
        SCREEN · 친구 정원
     ════════════════════════════════ */
     #screen-friends {
-      background: url('garden.png') center/cover no-repeat;
+      background: url('../garden.png') center/cover no-repeat;
     }
 
     #friend-single-view, #friends-list-view {
@@ -1149,7 +1130,7 @@
        SCREEN · 로그인
     ════════════════════════════════ */
     #screen-login {
-      background: url('village_background.png') center/cover no-repeat;
+      background: url('../log_background.png') center/150% no-repeat;
     }
     .lp-wrap {
       position: relative;

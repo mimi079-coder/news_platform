@@ -246,50 +246,40 @@
   <div class="map-wrap">
     <img src="village2.png" alt="마을">
 
-    <div class="hotspot" id="hs-garden"
-         onclick="openGarden()">
-      <img class="hs-building" src="myGarden.png" alt="나의 정원">
+    <div class="hotspot" id="hs-garden">
+      <img class="hs-building" src="myGarden.png" alt="나의 정원" onclick="openGarden()">
       <div class="hs-label">나의 정원</div>
     </div>
 
-    <div class="hotspot" id="hs-library"
-         onclick="switchTo('library')">
-      <img class="hs-building" src="library.PNG" alt="도서관">
+    <div class="hotspot" id="hs-library">
+      <img class="hs-building" src="library.PNG" alt="도서관" onclick="switchTo('library')">
       <div class="hs-label">도서관</div>
     </div>
 
-    <div class="hotspot" id="hs-house"
-         onclick="openHouseArea()">
-      <img class="hs-building" src="house.PNG" alt="나의 집">
+    <div class="hotspot" id="hs-house">
+      <img class="hs-building" src="house.PNG" alt="나의 집" onclick="openHouseArea()">
       <div class="hs-label">나의 집</div>
     </div>
 
-    <div class="hotspot" id="hs-villhall"
-         onclick="switchTo('gwangjang')">
-      <img class="hs-building" src="center.PNG" alt="마을 광장">
+    <div class="hotspot" id="hs-villhall">
+      <img class="hs-building" src="center.PNG" alt="마을 광장" onclick="switchTo('gwangjang')">
       <div class="hs-label">마을 광장</div>
     </div>
 
-    <div class="hotspot" id="hs-monument"
-         onclick="openSignPopup()">
-      <img class="hs-building" src="sign.PNG" alt="비석">
+    <div class="hotspot" id="hs-monument">
+      <img class="hs-building" src="sign.PNG" alt="비석" onclick="openSignPopup()">
       <div class="hs-label">비석 · 신문사 소개</div>
     </div>
 
     <img src="toCity.png" id="nav-to-city" class="city-arrow" onclick="goToCity()" alt="시내로">
 
-    <div class="hotspot" id="hs-postbox" onclick="showMbook()">
-      <img class="hs-building" src="post.png" alt="우체통">
+    <div class="hotspot" id="hs-postbox">
+      <img class="hs-building" src="post.png" alt="우체통" onclick="showMbook()">
       <div class="hs-label">우체통 · M북</div>
     </div>
 
     <button class="help-fab" onclick="openHelp()">?</button>
 
-    <button id="edit-toggle-village" onclick="toggleEditMode('village')" style="
-      position:absolute; bottom:20px; right:20px; z-index:30;
-      background:rgba(30,30,80,0.85); color:#fff; border:2px solid #aaf;
-      padding:10px 14px; font-family:'Press Start 2P',monospace; font-size:8px;
-      cursor:pointer; letter-spacing:1px;">✏️ 편집 모드</button>
   </div>
 </div>
 
@@ -301,76 +291,56 @@
     <img src="city/background.png" alt="시내">
 
     <!-- row 1 -->
-    <div class="hotspot" id="hs-detective"
-         onclick="openBoutiqueModal('hs-detective','탐정사무소','채림\n\n숨겨진 진실을 추적합니다.\n심층 취재와 탐사 보도의 공간입니다.\n제보는 언제나 환영합니다.')">
-      <img class="hs-building" src="city/detective.png" alt="탐정사무소">
+    <div class="hotspot" id="hs-detective">
+      <img class="hs-building" src="city/detective.png" alt="탐정사무소" onclick="openBoutiqueModal('hs-detective','탐정사무소','채림\n\n숨겨진 진실을 추적합니다.\n심층 취재와 탐사 보도의 공간입니다.\n제보는 언제나 환영합니다.')">
       <div class="hs-label">탐정사무소 · 채림</div>
     </div>
 
-    <div class="hotspot" id="hs-guest"
-         onclick="openBoutiqueModal('hs-guest','상담소','소은\n\n다양한 사람들의 이야기.\n여행자의 시선으로 세상을 봅니다.')">
-      <img class="hs-building" src="city/counsel.png" alt="상담소">
+    <div class="hotspot" id="hs-guest">
+      <img class="hs-building" src="city/counsel.png" alt="상담소" onclick="openBoutiqueModal('hs-guest','상담소','소은\n\n다양한 사람들의 이야기.\n여행자의 시선으로 세상을 봅니다.')">
       <div class="hs-label">상담소 · 소은</div>
     </div>
 
-    <div class="hotspot" id="hs-cinema"
-         onclick="openBoutiqueModal('hs-cinema','영화관','채원\n\n영화와 영상 문화를 리뷰합니다.\n스크린 너머의 세계로 여러분을 초대합니다.')">
-      <img class="hs-building" src="city/cinema.png" alt="영화관">
+    <div class="hotspot" id="hs-cinema">
+      <img class="hs-building" src="city/cinema.png" alt="영화관" onclick="openBoutiqueModal('hs-cinema','영화관','채원\n\n영화와 영상 문화를 리뷰합니다.\n스크린 너머의 세계로 여러분을 초대합니다.')">
       <div class="hs-label">영화관 · 채원</div>
     </div>
 
     <!-- row 2 -->
-    <div class="hotspot" id="hs-lp"
-         onclick="openBoutiqueModal('hs-lp','LP샵','현서\n\n음악과 감성의 공간.\n음악으로 세상을 이야기하고\n시대의 사운드를 기록합니다.')">
-      <img class="hs-building" src="city/LPshop.png" alt="LP샵">
+    <div class="hotspot" id="hs-lp">
+      <img class="hs-building" src="city/LPshop.png" alt="LP샵" onclick="openBoutiqueModal('hs-lp','LP샵','현서\n\n음악과 감성의 공간.\n음악으로 세상을 이야기하고\n시대의 사운드를 기록합니다.')">
       <div class="hs-label">LP샵 · 현서</div>
     </div>
 
-    <div class="hotspot" id="hs-council"
-         onclick="openBoutiqueModal('hs-council','주민센터','성준\n\n지역 구의회를 취재합니다.\n주민의 목소리를 담은 의정 활동과\n지역 정치 이슈를 전합니다.')">
-      <img class="hs-building" src="city/council.png" alt="주민센터">
+    <div class="hotspot" id="hs-council">
+      <img class="hs-building" src="city/council.png" alt="주민센터" onclick="openBoutiqueModal('hs-council','주민센터','성준\n\n지역 구의회를 취재합니다.\n주민의 목소리를 담은 의정 활동과\n지역 정치 이슈를 전합니다.')">
       <div class="hs-label">주민센터 · 성준</div>
     </div>
 
-    <div class="hotspot" id="hs-culture"
-         onclick="openBoutiqueModal('hs-culture','다방','은수\n\n예술, 문화, 라이프스타일.\n우리 주변의 아름다운 이야기들을 담습니다.')">
-      <img class="hs-building" src="city/cafe.png" alt="다방">
+    <div class="hotspot" id="hs-culture">
+      <img class="hs-building" src="city/cafe.png" alt="다방" onclick="openBoutiqueModal('hs-culture','다방','은수\n\n예술, 문화, 라이프스타일.\n우리 주변의 아름다운 이야기들을 담습니다.')">
       <div class="hs-label">다방 · 은수</div>
     </div>
 
     <!-- row 3 -->
-    <div class="hotspot" id="hs-botanical"
-         onclick="openBoutiqueModal('hs-botanical','수목원','세민\n\n자연과 환경 이야기.\n지속 가능한 내일을 위한 기록입니다.')">
-      <img class="hs-building" src="city/botanical.png" alt="수목원">
+    <div class="hotspot" id="hs-botanical">
+      <img class="hs-building" src="city/botanical.png" alt="수목원" onclick="openBoutiqueModal('hs-botanical','수목원','세민\n\n자연과 환경 이야기.\n지속 가능한 내일을 위한 기록입니다.')">
       <div class="hs-label">수목원 · 세민</div>
     </div>
 
-    <div class="hotspot" id="hs-haunted"
-         onclick="openBoutiqueModal('hs-haunted','사진현상소','민주\n\n잊혀진 이야기들이 모이는 곳.\n기억해야 할 역사와 미스터리를 기록합니다.')">
-      <img class="hs-building" src="city/film.png" alt="사진현상소">
+    <div class="hotspot" id="hs-haunted">
+      <img class="hs-building" src="city/film.png" alt="사진현상소" onclick="openBoutiqueModal('hs-haunted','사진현상소','민주\n\n잊혀진 이야기들이 모이는 곳.\n기억해야 할 역사와 미스터리를 기록합니다.')">
       <div class="hs-label">사진현상소 · 민주</div>
     </div>
 
-    <div class="hotspot" id="hs-airport"
-         onclick="openAirport()">
-      <img class="hs-building" src="city/airport.png" alt="공항">
+    <div class="hotspot" id="hs-airport">
+      <img class="hs-building" src="city/airport.png" alt="공항" onclick="openAirport()">
       <div class="hs-label">공항 · 미정</div>
     </div>
 
     <img src="toVillage.png" id="nav-to-village" class="back-fab" onclick="goToVillage()" alt="마을로">
     <button class="help-fab" onclick="openHelp()">?</button>
 
-    <button id="edit-toggle-city" onclick="toggleEditMode('city')" style="
-      position:absolute; bottom:20px; right:20px; z-index:30;
-      background:rgba(30,30,80,0.85); color:#fff; border:2px solid #aaf;
-      padding:10px 14px; font-family:'Press Start 2P',monospace; font-size:8px;
-      cursor:pointer; letter-spacing:1px;">✏️ 편집 모드</button>
-
-    <button id="bld-edit-btn" onclick="toggleBuildingEditMode()" style="
-      position:absolute; bottom:60px; right:20px; z-index:30;
-      background:rgba(30,30,80,0.85); color:#fff; border:2px solid #fa8;
-      padding:10px 14px; font-family:'Press Start 2P',monospace; font-size:8px;
-      cursor:pointer; letter-spacing:1px;">🏠 건물 편집</button>
   </div>
 </div>
 
@@ -621,86 +591,6 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════
-     편집 모드 패널
-══════════════════════════════ -->
-<div id="edit-panel" style="
-  display:none; position:fixed; bottom:0; left:0; right:0; z-index:1000;
-  background:rgba(10,10,30,0.95); border-top:2px solid #aaf;
-  padding:12px 16px; font-family:monospace; font-size:11px; color:#cef;">
-  <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
-    <div>
-      <div style="color:#aaf; margin-bottom:4px; font-size:10px;">▶ 박스를 드래그(이동) / 모서리를 드래그(크기조정)</div>
-      <pre id="edit-output" style="margin:0; color:#ffe; font-size:10px; line-height:1.6; white-space:pre;"></pre>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:8px; min-width:140px;">
-      <button onclick="copyEditValues()" style="
-        background:#334; color:#cef; border:1px solid #aaf;
-        padding:7px 10px; font-family:monospace; font-size:10px; cursor:pointer;">
-        📋 CSS 복사
-      </button>
-      <button onclick="toggleEditMode()" style="
-        background:#433; color:#fcc; border:1px solid #faa;
-        padding:7px 10px; font-family:monospace; font-size:10px; cursor:pointer;">
-        ✕ 편집 종료
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     건물 이미지 편집 패널
-══════════════════════════════ -->
-<div id="bld-panel" style="
-  display:none; position:fixed; right:0; top:0; bottom:0; z-index:1001;
-  width:230px; background:rgba(8,8,28,0.97); border-left:2px solid #fa8;
-  padding:18px 14px; font-family:monospace; font-size:11px; color:#fed;
-  flex-direction:column; gap:12px; overflow-y:auto;">
-
-  <div style="font-size:12px; color:#fa8; font-weight:bold;">🏠 건물 위치 / 크기</div>
-  <div style="color:#aaa; font-size:9px; line-height:1.6;">건물 이미지를 클릭해서<br>선택하세요</div>
-
-  <div id="bld-title" style="
-    color:#ffe; font-size:11px; font-weight:bold;
-    padding:6px 8px; background:rgba(255,168,0,0.15);
-    border:1px solid #fa8; border-radius:2px; min-height:28px;">
-    —
-  </div>
-
-  <label>너비 &nbsp;<span id="bld-w-val" style="color:#fa8">88</span>%
-    <input type="range" id="bld-w" min="20" max="130" value="88"
-           oninput="onBldSlider('w',this.value)">
-  </label>
-  <label>높이 &nbsp;<span id="bld-h-val" style="color:#fa8">88</span>%
-    <input type="range" id="bld-h" min="20" max="130" value="88"
-           oninput="onBldSlider('h',this.value)">
-  </label>
-  <label>가로 위치 &nbsp;<span id="bld-x-val" style="color:#fa8">0</span>%
-    <input type="range" id="bld-x" min="-30" max="30" value="0"
-           oninput="onBldSlider('x',this.value)">
-  </label>
-  <label>아래 여백 &nbsp;<span id="bld-bottom-val" style="color:#fa8">5</span>%
-    <input type="range" id="bld-bottom" min="-10" max="60" value="5"
-           oninput="onBldSlider('bottom',this.value)">
-  </label>
-
-  <div style="color:#aaa; font-size:9px; margin-top:4px;">CSS 출력 (복사 후 코드에 붙여넣기)</div>
-  <pre id="bld-css" style="
-    font-size:8px; color:#afe; background:rgba(0,0,0,0.4);
-    padding:8px; white-space:pre-wrap; margin:0;
-    max-height:180px; overflow-y:auto; border:1px solid #336;"></pre>
-
-  <button onclick="copyBuildingCSS()" style="
-    background:#334; color:#cef; border:1px solid #aaf;
-    padding:7px; font-family:monospace; font-size:10px; cursor:pointer;">
-    📋 CSS 복사
-  </button>
-  <button onclick="toggleBuildingEditMode()" style="
-    background:#433; color:#fcc; border:1px solid #faa;
-    padding:7px; font-family:monospace; font-size:10px; cursor:pointer;">
-    ✕ 종료
-  </button>
-</div>
 
 <!-- ══════════════════════════════
      로그인 / 회원가입 모달
