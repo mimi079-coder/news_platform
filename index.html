@@ -173,27 +173,27 @@
 ══════════════════════════════ -->
 <div id="screen-friends" class="screen">
   <img class="garden-bg" src="garden.png" alt="">
-  <div class="friends-overlay">
-    <!-- Single friend view (via link or from list) -->
-    <div id="friend-single-view">
-      <div class="friends-header">
-        <span class="friends-title" id="friend-view-title">친구의 정원</span>
+
+  <!-- Single friend view (overlay 없음 — myhouse와 동일 구조) -->
+  <div id="friend-single-view">
+    <div class="mh-top">
+      <span class="mh-username" id="friend-view-title">친구의 정원</span>
+      <div class="mh-nav">
         <button class="mh-btn" id="friend-back-village" onclick="friendsGoBack()">← 마을로</button>
         <button class="mh-btn" id="friend-back-list" onclick="loadFriendsListView()" style="display:none;">← 목록으로</button>
       </div>
-      <div id="friend-view-content" style="display:flex; flex-direction:column; flex:1; min-height:0;"></div>
-      <div id="friend-add-section" style="display:none;">
-        <button class="mh-btn primary" id="friend-add-btn" onclick="addFriend(window._viewingFriendId)">+ 친구 추가</button>
-      </div>
     </div>
-    <!-- Friends list view -->
-    <div id="friends-list-view" style="display:none;">
-      <div class="friends-header">
-        <span class="friends-title">친구 정원</span>
-        <button class="mh-btn" onclick="switchTo('myhouse')">← 내 정원으로</button>
-      </div>
-      <div id="friends-list-cards" class="friends-grid"></div>
+    <div class="mh-tree" id="friend-tree-display"></div>
+    <div class="mh-bottom" id="friend-view-content"></div>
+  </div>
+
+  <!-- Friends list view (어두운 overlay 유지) -->
+  <div id="friends-list-view" class="friends-overlay" style="display:none;">
+    <div class="friends-header">
+      <span class="friends-title">친구 정원</span>
+      <button class="mh-btn" onclick="switchTo('myhouse')">← 내 정원으로</button>
     </div>
+    <div id="friends-list-cards" class="friends-grid"></div>
   </div>
 </div>
 

@@ -98,14 +98,13 @@ export async function loadFriendView(kakaoId, fromList = false) {
 
   document.getElementById('friend-view-title').textContent = '불러오는 중…';
   document.getElementById('friend-view-content').innerHTML = '';
+  const treeEl = document.getElementById('friend-tree-display');
+  if (treeEl) treeEl.innerHTML = '';
 
   const backVillage = document.getElementById('friend-back-village');
   const backList    = document.getElementById('friend-back-list');
   if (backVillage) backVillage.style.display = fromList ? 'none' : 'block';
   if (backList)    backList.style.display    = fromList ? 'block' : 'none';
-
-  const addSection = document.getElementById('friend-add-section');
-  if (addSection) addSection.style.display = 'none';
 
   window._viewingFriendId = kakaoId;
   window.switchTo?.('friends');
@@ -117,7 +116,7 @@ export async function loadFriendView(kakaoId, fromList = false) {
     if (error || !d) {
       document.getElementById('friend-view-title').textContent = '친구의 정원';
       document.getElementById('friend-view-content').innerHTML =
-        '<div class="fv-tree-wrap" style="align-items:center;color:#aaa;font-family:\'Press Start 2P\',monospace;font-size:9px;letter-spacing:1px;">존재하지 않는 친구예요.</div>';
+        `<div class="mh-info"><div class="mh-level-badge" style="color:rgba(255,255,255,0.4);">존재하지 않는 친구예요</div></div>`;
       return;
     }
 
@@ -125,38 +124,40 @@ export async function loadFriendView(kakaoId, fromList = false) {
     const imgs  = ['', 'tree 1.png', 'tree 2.png', 'tree 3.png'];
     const sizes = [0, 200, 320, 420];
     const names = ['묘목', '작은 나무', '중간 나무', '가장 큰 나무'];
-    const treeHTML = level === 0
-      ? '<div class="fv-seed">🌱<br><span>아직 씨앗 상태예요</span></div>'
-      : `<img src="${imgs[level]}" height="${sizes[level]}" alt="나무" style="image-rendering:pixelated;">`;
+
+    if (treeEl) {
+      treeEl.innerHTML = level === 0
+        ? ''
+        : `<img src="${imgs[level]}" height="${sizes[level]}" alt="나무">`;
+    }
 
     document.getElementById('friend-view-title').textContent = (d.nickname || '친구') + '님의 정원';
     document.getElementById('friend-view-content').innerHTML =
-      `<div class="fv-tree-wrap">${treeHTML}</div>` +
-      `<div class="fv-info-panel">` +
+      `<div class="mh-info">` +
         `<div class="mh-level-badge">${names[level]}</div>` +
         `<div class="mh-progress-row">` +
           `<div class="mh-progress-label">레벨 ${level} / 3</div>` +
           `<div class="mh-progress-bar"><div class="mh-progress-fill" style="width:${(level / 3 * 100).toFixed(0)}%"></div></div>` +
         `</div>` +
-      `</div>`;
+      `</div>` +
+      `<div class="mh-nav" id="friend-add-nav"></div>`;
 
     const currentUser = window.appState?.currentUser;
-    if (currentUser && currentUser !== kakaoId && addSection) {
+    if (currentUser && currentUser !== kakaoId) {
       const { data: myData } = await sb.from('users').select('friends').eq('kakao_id', currentUser).single();
       const myFriends = Array.isArray(myData?.friends) ? myData.friends : [];
       const isAlreadyFriend = myFriends.includes(kakaoId);
 
-      addSection.style.display = 'block';
-      const addBtn = document.getElementById('friend-add-btn');
-      if (addBtn) {
-        addBtn.textContent = isAlreadyFriend ? '✓ 이미 친구예요' : '+ 친구 추가';
-        addBtn.disabled = isAlreadyFriend;
-        addBtn.style.opacity = isAlreadyFriend ? '0.6' : '1';
+      const navEl = document.getElementById('friend-add-nav');
+      if (navEl) {
+        navEl.innerHTML = `<button class="mh-btn primary" id="friend-add-btn" onclick="addFriend(window._viewingFriendId)">${isAlreadyFriend ? '✓ 이미 친구예요' : '+ 친구 추가'}</button>`;
+        const addBtn = document.getElementById('friend-add-btn');
+        if (addBtn) { addBtn.disabled = isAlreadyFriend; addBtn.style.opacity = isAlreadyFriend ? '0.6' : '1'; }
       }
     }
   } catch(err) {
     document.getElementById('friend-view-content').innerHTML =
-      '<div class="fv-tree-wrap" style="align-items:center;color:#aaa;font-family:\'Press Start 2P\',monospace;font-size:9px;">불러오기 실패.</div>';
+      `<div class="mh-info"><div class="mh-level-badge" style="color:rgba(255,255,255,0.4);">불러오기 실패</div></div>`;
   }
 }
 
