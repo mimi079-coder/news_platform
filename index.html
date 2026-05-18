@@ -282,6 +282,7 @@
     </div>
 
     <button class="help-fab" onclick="openHelp()">?</button>
+    <button class="edit-toggle-btn" id="edit-toggle-village" onclick="toggleEditMode('village')">✏️ 편집 모드</button>
 
   </div>
 </div>
@@ -341,10 +342,66 @@
       <div class="hs-label">공항 · 미정</div>
     </div>
 
+    <!-- 해쉬태그 표지판 (건물과 독립된 요소) -->
+    <img class="city-sign" id="sign-detective" src="city/하채림해쉬태그.png" alt="">
+    <img class="city-sign" id="sign-guest"     src="city/전소은해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-cinema"    src="city/이채원해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-lp"        src="city/정현서해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-council"   src="city/고성준해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-culture"   src="city/박은수해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-botanical" src="city/천세민해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-haunted"   src="city/정민주해쉬태그.png"  alt="">
+    <img class="city-sign" id="sign-airport"   src="city/김미정해쉬태그.png"  alt="">
+
     <img src="toVillage.png" id="nav-to-village" class="back-fab" onclick="goToVillage()" alt="마을로">
     <button class="help-fab" onclick="openHelp()">?</button>
+    <button class="edit-toggle-btn" id="edit-toggle-city" onclick="toggleEditMode('city')">✏️ 편집 모드</button>
+    <button class="mh-btn" id="bld-edit-btn" onclick="toggleBuildingEditMode()">🏠 건물 편집</button>
 
   </div>
+</div>
+
+<div id="edit-panel">
+  <div id="edit-panel-handle" style="display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:grab; user-select:none;">
+    <strong>⠿ 지도 편집 모드</strong>
+    <button class="mh-btn" style="font-size:10px;padding:6px 10px;" onclick="toggleEditMode(editTarget)">닫기</button>
+  </div>
+  <div style="font-size:11px; line-height:1.4; color:#ddd; margin-bottom:8px;">
+    요소를 드래그해 위치를 변경하고, 모서리를 잡아 크기를 조절하세요.
+  </div>
+  <textarea id="edit-output" readonly></textarea>
+  <button class="mh-btn" onclick="copyEditValues()">CSS 복사</button>
+</div>
+
+<div id="bld-panel">
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+    <strong>건물 편집 모드</strong>
+    <button class="mh-btn" style="font-size:10px;padding:6px 10px;" onclick="toggleBuildingEditMode()">닫기</button>
+  </div>
+  <div style="font-size:11px; line-height:1.4; color:#ddd; margin-bottom:8px;">
+    건물을 클릭해 선택한 뒤 슬라이더로 크기와 위치를 조정하세요.
+  </div>
+  <div class="bld-row">
+    <label>선택: <span id="bld-title">—</span></label>
+  </div>
+  <label>
+    너비 <span id="bld-w-val">0</span>%
+    <input type="range" id="bld-w" min="20" max="180" value="100" oninput="onBldSlider('w', this.value)">
+  </label>
+  <label>
+    높이 <span id="bld-h-val">0</span>%
+    <input type="range" id="bld-h" min="20" max="180" value="100" oninput="onBldSlider('h', this.value)">
+  </label>
+  <label>
+    X 오프셋 <span id="bld-x-val">0</span>
+    <input type="range" id="bld-x" min="-40" max="40" value="0" oninput="onBldSlider('x', this.value)">
+  </label>
+  <label>
+    bottom <span id="bld-bottom-val">0</span>%
+    <input type="range" id="bld-bottom" min="-30" max="30" value="0" oninput="onBldSlider('bottom', this.value)">
+  </label>
+  <button class="mh-btn" onclick="copyBuildingCSS()">CSS 복사</button>
+  <textarea id="bld-css" readonly></textarea>
 </div>
 
 <!-- ══════════════════════════════
@@ -709,6 +766,24 @@
       <div id="modal-nutrient-content"></div>
     </div>
     <button class="modal-close" onclick="closeModal()">닫기</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     TUTORIAL / ONBOARDING
+══════════════════════════════ -->
+<div id="tutorial-bg">
+  <div class="tutorial-box">
+    <div class="tutorial-header">
+      <span class="tutorial-step-label">STEP <span id="tut-num">1</span> / 9</span>
+      <div class="tutorial-progress" id="tut-progress"></div>
+    </div>
+    <div class="tutorial-content">
+      <div class="tutorial-icon" id="tut-icon"></div>
+      <h2 class="tutorial-title" id="tut-title"></h2>
+      <div class="tutorial-body" id="tut-body"></div>
+      <div class="tutorial-btns" id="tut-btns"></div>
+    </div>
   </div>
 </div>
 
