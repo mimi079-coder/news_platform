@@ -183,7 +183,7 @@
       justify-content: flex-start;
     }
 
-    .map-wrap > img:not(.city-arrow):not(.back-fab) {
+    .map-wrap > img:not(.city-arrow):not(.back-fab):not(.city-sign) {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -262,6 +262,23 @@
     #hs-botanical  { left:  3.0%; top: 69.0%; width: 27.0%; height: 28.0%; }
     #hs-haunted    { left: 36.5%; top: 69.0%; width: 27.0%; height: 28.0%; }
     #hs-airport    { left: 70.0%; top: 69.0%; width: 27.0%; height: 28.0%; }
+
+    /* ── City signs (해쉬태그 표지판) ── */
+    .city-sign {
+      position: absolute;
+      width: 22%;
+      pointer-events: none;
+      image-rendering: pixelated;
+    }
+    #sign-detective { left:  4.0%; top: 22%; }
+    #sign-guest     { left: 37.5%; top: 22%; }
+    #sign-cinema    { left: 71.0%; top: 22%; }
+    #sign-lp        { left:  4.0%; top: 56%; }
+    #sign-council   { left: 37.5%; top: 56%; }
+    #sign-culture   { left: 71.0%; top: 56%; }
+    #sign-botanical { left:  4.0%; top: 88%; }
+    #sign-haunted   { left: 37.5%; top: 88%; }
+    #sign-airport   { left: 71.0%; top: 88%; }
 
     /* ── Floating buttons ── */
 
