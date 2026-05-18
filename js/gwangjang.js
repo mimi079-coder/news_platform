@@ -1,22 +1,6 @@
   'use strict';
 
-  const SAMPLE = [
-    { id:1, cat:'notice', badge:'공지', bc:'gj-badge-notice', title:'광장 게시판 이용 안내', author:'편집부', date:'2026.05.03', views:312, likes:24,
-      body:'광장은 마을 주민 모두의 공론장입니다.\n\n· 비방·욕설·허위 사실 게시물은 삭제됩니다.\n· 광고성 글은 통보 없이 삭제될 수 있습니다.\n· 제보는 제보란을, 기고는 투고란을 이용해 주세요.\n\n건강한 광장 문화를 함께 만들어 주세요.', comments:[] },
-    { id:2, cat:'tip', badge:'제보', bc:'gj-badge-tip', title:'마을회관 앞 보도블록 파손 3개월째 방치 중입니다', author:'마을주민A', date:'2026.05.07', views:87, likes:15,
-      body:'마을회관 정문 앞 보도블록이 파손된 지 3개월이 지났습니다.\n어르신들이 걸려 넘어질 위험이 있는데 아직도 고쳐지지 않고 있습니다.\n\n같은 문제를 겪고 계신 분 있으시면 댓글 남겨 주세요.',
-      comments:[{author:'마을주민B', time:'10:34', text:'저도 지난주에 거기서 넘어질 뻔 했어요.'},{author:'마을주민C', time:'11:02', text:'구의회 고성준 의원께 직접 연락해 보세요.'}] },
-    { id:3, cat:'free', badge:'자유', bc:'gj-badge-free', title:'문화 다방 봄 전시 다녀왔습니다', author:'진새민', date:'2026.05.06', views:143, likes:31,
-      body:'주말에 문화 다방 봄 전시 다녀왔는데 정말 좋았어요.\n수채화 작품들 위주로 꾸며져 있어 색감이 참 봄답더라고요.', comments:[{author:'박민수', time:'14:22', text:'이번 주말 가봐야겠네요!'}] },
-    { id:4, cat:'discuss', badge:'토론', bc:'gj-badge-free', title:'신규 국내선 노선 취항, 지역 경제에 도움이 될까요?', author:'김미항', date:'2026.05.05', views:209, likes:18,
-      body:'이번에 공항에 신규 국내선 노선이 취항한다는 기사 보셨나요?\n\n긍정론: 관광객 유입 → 지역 상권 활성화\n부정론: 수요 예측 실패 시 단기 적자\n\n여러분 생각은 어떠신가요?',
-      comments:[{author:'고성준', time:'09:15', text:'예산 심의 당시 수요 조사를 꼼꼼히 검토했습니다.'},{author:'하채림', time:'09:47', text:'탐정 하우스에서 운항 실적 6개월 추적 취재 예정입니다.'}] },
-    { id:5, cat:'question', badge:'질문', bc:'gj-badge-free', title:'식물원 희귀 식물 공개, 사전 예약 없이 정말 가능한가요?', author:'묘목123', date:'2026.05.04', views:62, likes:7,
-      body:'기사에서 사전 예약 없이 관람 가능하다고 했는데, 혹시 다녀오신 분 계신가요?',
-      comments:[{author:'진새민', time:'16:55', text:'네, 어제 다녀왔는데 예약 없이 바로 입장했어요.'}] },
-    { id:6, cat:'free', badge:'자유', bc:'gj-badge-free', title:'LP샵에서 우연히 들은 곡이 귀에 맴돕니다', author:'정현서', date:'2026.05.03', views:95, likes:42,
-      body:'LP샵에서 오후 내내 음반을 뒤지다가 어떤 재즈 앨범을 우연히 들었는데\n지금도 그 멜로디가 머릿속에서 떠나질 않아요.', comments:[] },
-  ];
+  const SAMPLE = [];
 
   let posts = JSON.parse(JSON.stringify(SAMPLE));
   let myPosts = [], myComments = [], currentCat = 'all', currentId = null, likesUsed = {};
