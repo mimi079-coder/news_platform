@@ -266,11 +266,13 @@
     /* ── City signs (해쉬태그 표지판) ── */
     .city-sign {
       position: absolute;
-      width: 22%;
+      width: 20%;
       pointer-events: none;
       image-rendering: pixelated;
+      z-index: 10;
+
     }
-    #sign-detective { left:  4.0%; top: 22%; }
+    #sign-detective { left:  5.0%; top: 20%; }
     #sign-guest     { left: 37.5%; top: 22%; }
     #sign-cinema    { left: 71.0%; top: 22%; }
     #sign-lp        { left:  4.0%; top: 56%; }
