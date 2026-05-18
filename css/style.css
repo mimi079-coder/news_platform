@@ -236,10 +236,7 @@
     }
 
     /* ── 건물 편집 패널 슬라이더 ── */
-    #bld-panel label { display:flex; flex-direction:column; gap:4px; color:#fed; font-size:10px; }
-    #bld-panel input[type=range] { width:100%; accent-color:#fa8; }
-
-    .hs-label { display: none; }
+.hs-label { display: none; }
 
     /* ── Village hotspot positions ── */
     #hs-garden     { left: 37%; top: 30%; width:  9%; height: 19.6%; }
