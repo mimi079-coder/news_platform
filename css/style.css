@@ -1288,48 +1288,55 @@
     }
     #sign-popup-overlay.open { display: flex; }
     #sign-popup-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #1a1a2e;
-      border-radius: 16px;
-      overflow-y: auto;
-      max-height: 88vh;
+      position: relative;
       max-width: min(500px, 92vw);
-      width: 100%;
+      max-height: 88vh;
       cursor: default;
+      overflow-y: auto;
+      border-radius: 16px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.8);
     }
     #sign-popup-card img {
       width: 100%;
-      object-fit: contain;
       display: block;
-      border-radius: 16px 16px 0 0;
+      border-radius: 16px;
     }
     #sign-popup-text {
-      padding: 24px 24px 28px;
-      color: #e8e0d0;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 47% 24px 28px;
+      background: transparent;
+      border-radius: 16px;
+      color: #000;
       font-family: 'Nanum Myeongjo', Georgia, serif;
+      overflow-y: auto;
+      text-align: center;
     }
     #sign-popup-text h2 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: #f5e6c8;
-      margin: 0 0 12px;
+      color: #fff;
+      margin: 0 0 10px;
       line-height: 1.5;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
     #sign-popup-text .sign-popup-lead {
-      font-size: 0.9rem;
-      color: #c8b89a;
+      font-size: 0.82rem;
+      color: #e8d8b8;
       font-style: italic;
-      margin: 0 0 14px;
+      margin: 0 0 10px;
       line-height: 1.7;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.7);
     }
     #sign-popup-text p {
-      font-size: 0.85rem;
+      font-size: 0.6rem;
       line-height: 1.8;
-      margin: 0 0 10px;
-      color: #ccc8be;
+      margin: 0 0 8px;
+      color: #000;
+      text-shadow: none;
     }
     #sign-popup-text p:last-child { margin-bottom: 0; }
 
