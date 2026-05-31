@@ -1283,14 +1283,14 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      padding: 24px;
+      padding: 16px;
       box-sizing: border-box;
     }
     #sign-popup-overlay.open { display: flex; }
     #sign-popup-card {
       position: relative;
-      max-width: min(500px, 92vw);
-      max-height: 88vh;
+      max-width: min(900px, 96vw);
+      max-height: 96vh;
       cursor: default;
       overflow-y: auto;
       border-radius: 16px;
