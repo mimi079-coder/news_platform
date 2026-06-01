@@ -6,11 +6,20 @@
 
 body {
 	font-family: "Nanum Gothic", sans-serif;
-	background: url("../log_background.png") center/150% no-repeat fixed;
 	color: #fff;
 	overflow: hidden;
-	height: 100vh;
-	width: 100vw;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: url("../log_background.avif") center/cover no-repeat fixed;
+	filter: blur(8px);
+	z-index: -1;
 }
 
 /* ── Screens ── */
@@ -47,10 +56,25 @@ body {
 	flex-direction: column;
 }
 
-.village-bg {
+/* Reusable: isolates background to ::before so children are unaffected by filters */
+.bg-blur-layer {
 	position: absolute;
 	inset: 0;
+}
+
+.bg-blur-layer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: inherit;
+	z-index: -1;
+}
+
+.village-bg {
 	background: url("../log_background.png") center/150% no-repeat;
+}
+
+.village-bg::before {
 	filter: brightness(0.6) blur(2px);
 	transform: scale(1.05);
 }
@@ -94,7 +118,7 @@ body {
        SCREEN 2 · M북
     ════════════════════════════════ */
 #screen-mbook {
-	background: rgba(0, 0, 0, 0.88);
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 100;
 	flex-direction: column;
 }

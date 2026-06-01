@@ -38,11 +38,17 @@
 ══════════════════════════════ -->
 		<div id="screen-login" class="screen active">
 			<div class="lp-wrap">
-				<img src="ssol.png" alt="뉴먼" style="width: 100%; height: auto; display: block" />
+				<img
+					src="ssol.png"
+					alt="뉴먼"
+					style="width: 100%; height: auto; display: block"
+				/>
 
 				<div class="lp-card">
 					<div class="lp-card-header">🔑 &nbsp;로그인</div>
-					<p class="lp-kakao-desc">카카오 계정으로 로그인하면<br />친구들의 나무도 볼 수 있어요!</p>
+					<p class="lp-kakao-desc">
+						카카오 계정으로 로그인하면<br />친구들의 나무도 볼 수 있어요!
+					</p>
 					<div id="lp-kakao-error" class="lp-error"></div>
 					<button class="lp-kakao-btn" onclick="kakaoLogin()">
 						<img
@@ -53,15 +59,17 @@
 					</button>
 				</div>
 
-				<button class="lp-browse-btn" onclick="lpBrowse()">🚲 &nbsp;둘러보기</button>
+				<button class="lp-browse-btn" onclick="lpBrowse()">
+					🚲 &nbsp;둘러보기
+				</button>
 			</div>
 		</div>
 
 		<div id="screen-mailbox" class="screen">
-			<div class="village-bg"></div>
+			<div class="bg-blur-layer village-bg"></div>
 			<div class="mailbox-wrapper" onclick="showMbook()">
 				<div class="mailbox-title">뉴스 마을</div>
-				<img src="post.png" alt="우체통" />
+				<img src="post.avif" alt="우체통" />
 				<div class="mailbox-hint">▶ 우체통을 클릭하세요 ◀</div>
 			</div>
 		</div>
@@ -73,15 +81,17 @@
 			<div class="mbook-wrap">
 				<div class="mbook-head">
 					<div class="mbook-logo">M 북</div>
-					<div class="mbook-sub">오늘의 뉴스 &nbsp;·&nbsp; 2026년 5월 3일 (일)</div>
+					<div class="mbook-sub">
+						오늘의 뉴스 &nbsp;·&nbsp; 2026년 5월 3일 (일)
+					</div>
 				</div>
 
 				<div class="news-item" data-idx="0">
 					<span class="news-tag">구의회</span>
 					<h3>구의회, 마을 환경 개선 예산안 최종 통과</h3>
 					<p>
-						이번 회기에서 마을 환경 개선을 위한 예산안이 최종 통과되었습니다. 주민 편의시설 확충과
-						녹지 공간 조성에 중점을 둘 예정입니다.
+						이번 회기에서 마을 환경 개선을 위한 예산안이 최종 통과되었습니다.
+						주민 편의시설 확충과 녹지 공간 조성에 중점을 둘 예정입니다.
 					</p>
 					<div class="read-indicator" id="ri-0"></div>
 				</div>
@@ -90,8 +100,8 @@
 					<span class="news-tag">문화</span>
 					<h3>문화 다방, 봄맞이 특별 전시회 이번 주말 개최</h3>
 					<p>
-						문화 다방에서는 이번 주말부터 지역 예술가들의 봄 작품 전시회를 개최합니다. 누구나 무료로
-						관람할 수 있습니다.
+						문화 다방에서는 이번 주말부터 지역 예술가들의 봄 작품 전시회를
+						개최합니다. 누구나 무료로 관람할 수 있습니다.
 					</p>
 					<div class="read-indicator" id="ri-1"></div>
 				</div>
@@ -100,8 +110,8 @@
 					<span class="news-tag">공항</span>
 					<h3>신규 국내선 노선 취항, 지역 접근성 크게 향상</h3>
 					<p>
-						공항에 신규 국내선 노선이 취항하며 이동 편의성이 크게 향상될 전망입니다. 다음 달부터
-						운항을 시작합니다.
+						공항에 신규 국내선 노선이 취항하며 이동 편의성이 크게 향상될
+						전망입니다. 다음 달부터 운항을 시작합니다.
 					</p>
 					<div class="read-indicator" id="ri-2"></div>
 				</div>
@@ -110,8 +120,8 @@
 					<span class="news-tag">식물원</span>
 					<h3>식물원, 희귀 식물 20여 종 이번 주 토요일 공개</h3>
 					<p>
-						지역 식물원에서 해외에서 들여온 희귀 식물 20여 종을 새롭게 공개합니다. 사전 예약 없이
-						관람 가능합니다.
+						지역 식물원에서 해외에서 들여온 희귀 식물 20여 종을 새롭게
+						공개합니다. 사전 예약 없이 관람 가능합니다.
 					</p>
 					<div class="read-indicator" id="ri-3"></div>
 				</div>
@@ -120,8 +130,8 @@
 					<span class="news-tag">탐사</span>
 					<h3>[탐정 하우스] 미확인 제보, 진실은 무엇인가</h3>
 					<p>
-						독자 제보로 시작된 탐사 보도. 석 달간의 추적 끝에 드러난 놀라운 사실들을 단독으로
-						보도합니다.
+						독자 제보로 시작된 탐사 보도. 석 달간의 추적 끝에 드러난 놀라운
+						사실들을 단독으로 보도합니다.
 					</p>
 					<div class="read-indicator" id="ri-4"></div>
 				</div>
@@ -130,13 +140,15 @@
 					<span class="news-tag">영화</span>
 					<h3>이번 주 개봉작 리뷰 — 기대작 3편 한눈에</h3>
 					<p>
-						이번 주 영화관에 걸리는 세 편의 신작을 미리 보았습니다. 장르도, 분위기도 제각각인 세
-						작품의 관람 포인트를 정리했습니다.
+						이번 주 영화관에 걸리는 세 편의 신작을 미리 보았습니다. 장르도,
+						분위기도 제각각인 세 작품의 관람 포인트를 정리했습니다.
 					</p>
 					<div class="read-indicator" id="ri-5"></div>
 				</div>
 
-				<button class="mbook-enter-btn" onclick="goAfterMbook()">마을로 입장하기 →</button>
+				<button class="mbook-enter-btn" onclick="goAfterMbook()">
+					마을로 입장하기 →
+				</button>
 			</div>
 		</div>
 
@@ -155,17 +167,29 @@
 				<div class="bag-row">
 					<span class="bag-label">가방</span>
 					<div class="nutrient-icons">
-						<button class="ni-btn" id="ni-btn-비료" onclick="feedOneNutrient('비료')">
+						<button
+							class="ni-btn"
+							id="ni-btn-비료"
+							onclick="feedOneNutrient('비료')"
+						>
 							<span class="ni-icon">🌱</span>
 							<span class="ni-name">비료</span>
 							<span class="ni-count" id="bag-count-비료">0</span>
 						</button>
-						<button class="ni-btn" id="ni-btn-물" onclick="feedOneNutrient('물')">
+						<button
+							class="ni-btn"
+							id="ni-btn-물"
+							onclick="feedOneNutrient('물')"
+						>
 							<span class="ni-icon">💧</span>
 							<span class="ni-name">물</span>
 							<span class="ni-count" id="bag-count-물">0</span>
 						</button>
-						<button class="ni-btn" id="ni-btn-양분" onclick="feedOneNutrient('양분')">
+						<button
+							class="ni-btn"
+							id="ni-btn-양분"
+							onclick="feedOneNutrient('양분')"
+						>
 							<span class="ni-icon">🍃</span>
 							<span class="ni-name">양분</span>
 							<span class="ni-count" id="bag-count-양분">0</span>
@@ -181,7 +205,7 @@
 							color: #fff;
 							border: none;
 							padding: 10px 0;
-							font-family: 'Press Start 2P', monospace;
+							font-family: &quot;Press Start 2P&quot;, monospace;
 							font-size: 8px;
 							cursor: pointer;
 							letter-spacing: 1px;
@@ -199,16 +223,24 @@
 					<div class="mh-info">
 						<div class="mh-level-badge" id="mh-level-badge">묘목</div>
 						<div class="mh-progress-row">
-							<div class="mh-progress-label" id="mh-progress-label">세트 0 / 3</div>
+							<div class="mh-progress-label" id="mh-progress-label">
+								세트 0 / 3
+							</div>
 							<div class="mh-progress-bar">
 								<div class="mh-progress-fill" id="mh-progress-fill"></div>
 							</div>
 						</div>
 					</div>
 					<div class="mh-nav">
-						<button class="mh-btn" onclick="switchTo('village')">← 마을로</button>
-						<button class="mh-btn" onclick="shareMyLink()">🔗 내 링크 공유</button>
-						<button class="mh-btn" onclick="loadFriendsListView()">🌳 친구 나무 보기</button>
+						<button class="mh-btn" onclick="switchTo('village')">
+							← 마을로
+						</button>
+						<button class="mh-btn" onclick="shareMyLink()">
+							🔗 내 링크 공유
+						</button>
+						<button class="mh-btn" onclick="loadFriendsListView()">
+							🌳 친구 나무 보기
+						</button>
 					</div>
 				</div>
 			</div>
@@ -225,7 +257,11 @@
 				<div class="mh-top">
 					<span class="mh-username" id="friend-view-title">친구의 정원</span>
 					<div class="mh-nav">
-						<button class="mh-btn" id="friend-back-village" onclick="friendsGoBack()">
+						<button
+							class="mh-btn"
+							id="friend-back-village"
+							onclick="friendsGoBack()"
+						>
 							← 마을로
 						</button>
 						<button
@@ -246,7 +282,9 @@
 			<div id="friends-list-view" class="friends-overlay" style="display: none">
 				<div class="friends-header">
 					<span class="friends-title">친구 정원</span>
-					<button class="mh-btn" onclick="switchTo('myhouse')">← 내 정원으로</button>
+					<button class="mh-btn" onclick="switchTo('myhouse')">
+						← 내 정원으로
+					</button>
 				</div>
 				<div id="friends-list-cards" class="friends-grid"></div>
 			</div>
@@ -266,12 +304,17 @@
 					<span class="house-info-label">닉네임</span>
 					<div style="display: flex; align-items: center; gap: 8px">
 						<span class="house-info-value" id="house-nickname"></span>
-						<button class="house-nick-edit-btn" onclick="startNickEdit()">수정</button>
+						<button class="house-nick-edit-btn" onclick="startNickEdit()">
+							수정
+						</button>
 					</div>
 				</div>
 
 				<!-- 닉네임 편집 모드 (기본 숨김) -->
-				<div id="house-nick-form" style="display: none; flex-direction: column; gap: 10px">
+				<div
+					id="house-nick-form"
+					style="display: none; flex-direction: column; gap: 10px"
+				>
 					<span class="house-info-label">닉네임 수정</span>
 					<input
 						type="text"
@@ -283,7 +326,9 @@
 					<div class="house-nick-error" id="house-nick-error"></div>
 					<div class="house-nick-actions">
 						<button class="house-nick-save" onclick="saveNick()">저장</button>
-						<button class="house-nick-cancel" onclick="cancelNickEdit()">취소</button>
+						<button class="house-nick-cancel" onclick="cancelNickEdit()">
+							취소
+						</button>
 					</div>
 				</div>
 
@@ -292,7 +337,9 @@
 					<span class="house-info-label">로그인 계정</span>
 					<span class="house-info-value" id="house-account"></span>
 				</div>
-				<button class="house-logout-btn-full" onclick="logout()">로그아웃</button>
+				<button class="house-logout-btn-full" onclick="logout()">
+					로그아웃
+				</button>
 			</div>
 
 			<div class="mh-bottom">
@@ -310,17 +357,32 @@
 				<img src="village2.png" alt="마을" />
 
 				<div class="hotspot" id="hs-garden">
-					<img class="hs-building" src="myGarden.png" alt="나의 정원" onclick="openGarden()" />
+					<img
+						class="hs-building"
+						src="myGarden.png"
+						alt="나의 정원"
+						onclick="openGarden()"
+					/>
 					<div class="hs-label">나의 정원</div>
 				</div>
 
 				<div class="hotspot" id="hs-library">
-					<img class="hs-building" src="library.PNG" alt="도서관" onclick="switchTo('library')" />
+					<img
+						class="hs-building"
+						src="library.PNG"
+						alt="도서관"
+						onclick="switchTo('library')"
+					/>
 					<div class="hs-label">도서관</div>
 				</div>
 
 				<div class="hotspot" id="hs-house">
-					<img class="hs-building" src="house.PNG" alt="나의 집" onclick="openHouseArea()" />
+					<img
+						class="hs-building"
+						src="house.PNG"
+						alt="나의 집"
+						onclick="openHouseArea()"
+					/>
 					<div class="hs-label">나의 집</div>
 				</div>
 
@@ -335,7 +397,12 @@
 				</div>
 
 				<div class="hotspot" id="hs-monument">
-					<img class="hs-building" src="sign.PNG" alt="비석" onclick="openSignPopup()" />
+					<img
+						class="hs-building"
+						src="sign.PNG"
+						alt="비석"
+						onclick="openSignPopup()"
+					/>
 					<div class="hs-label">비석 · 신문사 소개</div>
 				</div>
 
@@ -348,7 +415,12 @@
 				/>
 
 				<div class="hotspot" id="hs-postbox">
-					<img class="hs-building" src="post.png" alt="우체통" onclick="showMbook()" />
+					<img
+						class="hs-building"
+						src="post.avif"
+						alt="우체통"
+						onclick="showMbook()"
+					/>
 					<div class="hs-label">우체통 · M북</div>
 				</div>
 
@@ -495,20 +567,70 @@
 				</div>
 
 				<div class="hotspot" id="hs-airport">
-					<img class="hs-building" src="city/airport.png" alt="공항" onclick="openAirport()" />
+					<img
+						class="hs-building"
+						src="city/airport.png"
+						alt="공항"
+						onclick="openAirport()"
+					/>
 					<div class="hs-label">공항 · 미정</div>
 				</div>
 
 				<!-- 해쉬태그 표지판 (건물과 독립된 요소) -->
-				<img class="city-sign" id="sign-detective" src="city/하채림해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-guest" src="city/전소은해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-cinema" src="city/이채원해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-lp" src="city/정현서해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-council" src="city/고성준해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-culture" src="city/박은수해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-botanical" src="city/천세민해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-haunted" src="city/정민주해쉬태그.png" alt="" />
-				<img class="city-sign" id="sign-airport" src="city/김미정해쉬태그.png" alt="" />
+				<img
+					class="city-sign"
+					id="sign-detective"
+					src="city/하채림해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-guest"
+					src="city/전소은해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-cinema"
+					src="city/이채원해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-lp"
+					src="city/정현서해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-council"
+					src="city/고성준해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-culture"
+					src="city/박은수해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-botanical"
+					src="city/천세민해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-haunted"
+					src="city/정민주해쉬태그.png"
+					alt=""
+				/>
+				<img
+					class="city-sign"
+					id="sign-airport"
+					src="city/김미정해쉬태그.png"
+					alt=""
+				/>
 
 				<img
 					src="toVillage.png"
@@ -530,7 +652,7 @@
 					<button class="mh-btn" onclick="switchTo('village')">← 마을로</button>
 					<span
 						style="
-							font-family: 'Press Start 2P', monospace;
+							font-family: &quot;Press Start 2P&quot;, monospace;
 							font-size: 9px;
 							color: #aaa;
 							letter-spacing: 2px;
@@ -544,21 +666,34 @@
 							<div class="gj-notice-bar">
 								<span class="gj-notice-bar-label">📌 공지</span>
 								<span
-									>광장에서는 마을 주민 누구나 자유롭게 글을 쓸 수 있습니다. 건전한 마을 문화를 함께
-									만들어 주세요.</span
+									>광장에서는 마을 주민 누구나 자유롭게 글을 쓸 수 있습니다.
+									건전한 마을 문화를 함께 만들어 주세요.</span
 								>
 							</div>
 							<div class="gj-header">
-								<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 10px;
+										flex-wrap: wrap;
+									"
+								>
 									<span class="gj-header-title">광 장</span>
-									<span class="gj-header-sub">독자 게시판 · 마을 사람들의 이야기</span>
+									<span class="gj-header-sub"
+										>독자 게시판 · 마을 사람들의 이야기</span
+									>
 								</div>
 								<span class="gj-header-date" id="gj-today-date"></span>
 							</div>
 							<div class="gj-tabs">
-								<button class="gj-tab active" data-tab="board">자유 광장</button>
+								<button class="gj-tab active" data-tab="board">
+									자유 광장
+								</button>
 								<button class="gj-tab" data-tab="write">✏ 글쓰기</button>
-								<button class="gj-tab" data-tab="tip">제보란 <span class="gj-dot"></span></button>
+								<button class="gj-tab" data-tab="tip">
+									제보란 <span class="gj-dot"></span>
+								</button>
 								<button class="gj-tab" data-tab="contribute">투고란</button>
 								<button class="gj-tab" data-tab="my">내 활동</button>
 							</div>
@@ -568,13 +703,23 @@
 									<div class="gj-post-list-wrap" id="gj-board-list-wrap">
 										<div class="gj-board-toolbar">
 											<div class="gj-board-toolbar-left">
-												<button class="gj-cat-btn active" data-cat="all">전체</button>
+												<button class="gj-cat-btn active" data-cat="all">
+													전체
+												</button>
 												<button class="gj-cat-btn" data-cat="free">자유</button>
-												<button class="gj-cat-btn" data-cat="discuss">토론</button>
-												<button class="gj-cat-btn" data-cat="question">질문</button>
+												<button class="gj-cat-btn" data-cat="discuss">
+													토론
+												</button>
+												<button class="gj-cat-btn" data-cat="question">
+													질문
+												</button>
 												<button class="gj-cat-btn" data-cat="tip">제보</button>
 											</div>
-											<button class="gj-write-btn" id="gj-goto-write-btn" data-guest-guard>
+											<button
+												class="gj-write-btn"
+												id="gj-goto-write-btn"
+												data-guest-guard
+											>
 												+ 글쓰기
 											</button>
 										</div>
@@ -587,10 +732,15 @@
 										</div>
 									</div>
 									<div class="gj-post-view" id="gj-post-view">
-										<button class="gj-back-btn" id="gj-back-btn">← 목록으로</button>
+										<button class="gj-back-btn" id="gj-back-btn">
+											← 목록으로
+										</button>
 										<div class="gj-post-view-header">
 											<div class="gj-post-view-badge-row">
-												<span class="gj-post-badge gj-badge-free" id="gj-view-badge"></span>
+												<span
+													class="gj-post-badge gj-badge-free"
+													id="gj-view-badge"
+												></span>
 											</div>
 											<div class="gj-post-view-title" id="gj-view-title"></div>
 											<div class="gj-post-view-meta">
@@ -601,11 +751,15 @@
 										</div>
 										<div class="gj-post-view-body" id="gj-view-body"></div>
 										<div class="gj-like-row">
-											<button class="gj-like-btn" id="gj-like-btn">♡ 공감</button>
+											<button class="gj-like-btn" id="gj-like-btn">
+												♡ 공감
+											</button>
 											<span class="gj-like-count" id="gj-like-count"></span>
 										</div>
 										<div class="gj-comment-area">
-											<div class="gj-comment-count" id="gj-comment-count">댓글 0</div>
+											<div class="gj-comment-count" id="gj-comment-count">
+												댓글 0
+											</div>
 											<div id="gj-comment-list"></div>
 											<div class="gj-comment-input-row">
 												<input
@@ -618,7 +772,11 @@
 													class="gj-write-btn"
 													id="gj-comment-submit"
 													data-guest-guard
-													style="white-space: nowrap; font-size: 12px; padding: 7px 14px"
+													style="
+														white-space: nowrap;
+														font-size: 12px;
+														padding: 7px 14px;
+													"
 												>
 													등록
 												</button>
@@ -630,8 +788,8 @@
 								<div class="gj-panel" id="gj-panel-write">
 									<div class="gj-section-head">새 글 쓰기</div>
 									<div class="gj-form-notice">
-										광장은 마을의 공론장입니다. 타인을 향한 비방, 허위 사실 유포, 광고성 게시물은
-										삭제될 수 있습니다.
+										광장은 마을의 공론장입니다. 타인을 향한 비방, 허위 사실
+										유포, 광고성 게시물은 삭제될 수 있습니다.
 									</div>
 									<div class="gj-form-row">
 										<div class="gj-form-group">
@@ -645,7 +803,11 @@
 										</div>
 										<div class="gj-form-group">
 											<label class="gj-form-label">닉네임</label>
-											<input class="gj-form-input" id="gj-write-nick" placeholder="마을 주민" />
+											<input
+												class="gj-form-input"
+												id="gj-write-nick"
+												placeholder="마을 주민"
+											/>
 										</div>
 									</div>
 									<div class="gj-form-group">
@@ -667,7 +829,11 @@
 										></textarea>
 										<div class="gj-char-count" id="gj-body-count">0 / 2000</div>
 									</div>
-									<button class="gj-submit-btn" id="gj-write-submit" data-guest-guard>
+									<button
+										class="gj-submit-btn"
+										id="gj-write-submit"
+										data-guest-guard
+									>
 										광장에 게시하기
 									</button>
 								</div>
@@ -676,12 +842,13 @@
 									<div class="gj-tip-form-header">
 										<span class="gj-tip-title">제보란</span>
 										<span class="gj-tip-subtitle"
-											>탐정 하우스 · 뉴스 마을 편집부로 제보를 보내드립니다</span
+											>탐정 하우스 · 뉴스 마을 편집부로 제보를
+											보내드립니다</span
 										>
 									</div>
 									<div class="gj-form-notice">
-										제보 내용은 편집부에서만 확인합니다. 익명 제보 가능하며, 추가 연락이 필요한 경우
-										연락처를 남겨 주세요.
+										제보 내용은 편집부에서만 확인합니다. 익명 제보 가능하며,
+										추가 연락이 필요한 경우 연락처를 남겨 주세요.
 									</div>
 									<label class="gj-anon-toggle">
 										<input type="checkbox" id="gj-anon-check" checked />
@@ -689,7 +856,12 @@
 									</label>
 									<div class="gj-form-group" id="gj-tip-name-row">
 										<label class="gj-form-label">이름(또는 닉네임)</label>
-										<input class="gj-form-input" id="gj-tip-name" placeholder="익명" disabled />
+										<input
+											class="gj-form-input"
+											id="gj-tip-name"
+											placeholder="익명"
+											disabled
+										/>
 									</div>
 									<div class="gj-form-group">
 										<label class="gj-form-label">제보 분야</label>
@@ -725,7 +897,11 @@
 											placeholder="이메일 또는 전화번호"
 										/>
 									</div>
-									<button class="gj-submit-btn" id="gj-tip-submit" data-guest-guard>
+									<button
+										class="gj-submit-btn"
+										id="gj-tip-submit"
+										data-guest-guard
+									>
 										편집부에 제보하기
 									</button>
 								</div>
@@ -733,10 +909,12 @@
 								<div class="gj-panel" id="gj-panel-contribute">
 									<div class="gj-submit-notice-box">
 										<h3>투고 안내</h3>
-										뉴스 마을 M북에 독자 기고문을 싣고 싶은 분은 이 창구를 이용해 주세요.<br />
+										뉴스 마을 M북에 독자 기고문을 싣고 싶은 분은 이 창구를
+										이용해 주세요.<br />
 										· 분량: 원고지 3~10매 (600~2,000자) 권장<br />
 										· 형식: 자유 (에세이, 칼럼, 시, 소설, 리뷰 등)<br />
-										· 검토 후 편집부가 개별 연락을 드립니다. 채택 여부를 보장하지 않습니다.<br />
+										· 검토 후 편집부가 개별 연락을 드립니다. 채택 여부를
+										보장하지 않습니다.<br />
 										· 기고가 확정된 경우 M북 해당 섹션에 게재됩니다.
 									</div>
 									<div class="gj-form-row">
@@ -762,7 +940,11 @@
 									</div>
 									<div class="gj-form-group">
 										<label class="gj-form-label">제목</label>
-										<input class="gj-form-input" id="gj-contrib-title" placeholder="기고문 제목" />
+										<input
+											class="gj-form-input"
+											id="gj-contrib-title"
+											placeholder="기고문 제목"
+										/>
 									</div>
 									<div class="gj-form-group">
 										<label class="gj-form-label">본문</label>
@@ -772,7 +954,9 @@
 											style="min-height: 240px"
 											placeholder="기고 내용을 입력해 주세요."
 										></textarea>
-										<div class="gj-char-count" id="gj-contrib-count">0 / 2000</div>
+										<div class="gj-char-count" id="gj-contrib-count">
+											0 / 2000
+										</div>
 									</div>
 									<div class="gj-form-group">
 										<label class="gj-form-label">연락처</label>
@@ -782,7 +966,11 @@
 											placeholder="편집부 연락용 이메일"
 										/>
 									</div>
-									<button class="gj-submit-btn" id="gj-contrib-submit" data-guest-guard>
+									<button
+										class="gj-submit-btn"
+										id="gj-contrib-submit"
+										data-guest-guard
+									>
 										투고 신청하기
 									</button>
 								</div>
@@ -800,10 +988,22 @@
 										</div>
 									</div>
 									<div class="gj-section-head">내가 쓴 글</div>
-									<div id="gj-my-posts-list" style="border-top: 1.5px solid #4a3f2e"></div>
-									<div style="margin-top: 20px; border-top: 1.5px solid #4a3f2e; padding-top: 14px">
+									<div
+										id="gj-my-posts-list"
+										style="border-top: 1.5px solid #4a3f2e"
+									></div>
+									<div
+										style="
+											margin-top: 20px;
+											border-top: 1.5px solid #4a3f2e;
+											padding-top: 14px;
+										"
+									>
 										<div class="gj-section-head">내가 쓴 댓글</div>
-										<div id="gj-my-comments-list" style="border-top: 1.5px solid #4a3f2e"></div>
+										<div
+											id="gj-my-comments-list"
+											style="border-top: 1.5px solid #4a3f2e"
+										></div>
 									</div>
 								</div>
 							</div>
@@ -823,7 +1023,7 @@
 					<button class="mh-btn" onclick="switchTo('village')">← 마을로</button>
 					<span
 						style="
-							font-family: 'Press Start 2P', monospace;
+							font-family: &quot;Press Start 2P&quot;, monospace;
 							font-size: 9px;
 							color: #aaa;
 							letter-spacing: 2px;
@@ -838,11 +1038,13 @@
 								<div class="lib-hero-eyebrow">뉴스 마을</div>
 								<div class="lib-hero-title">도 서 관</div>
 								<div class="lib-hero-sub">
-									마을 도서관은 뉴먼의 모든 기사를 아카이빙하고 있어요.<br />기사 내용에 궁금한 점이
-									생긴다면 ai에게 편하게 물어보세요!
+									마을 도서관은 뉴먼의 모든 기사를 아카이빙하고 있어요.<br />기사
+									내용에 궁금한 점이 생긴다면 ai에게 편하게 물어보세요!
 								</div>
 								<hr class="lib-hero-rule" />
-								<div class="lib-hero-prompt" id="lib-prompt">무엇이 궁금하신가요?</div>
+								<div class="lib-hero-prompt" id="lib-prompt">
+									무엇이 궁금하신가요?
+								</div>
 								<div class="lib-input-row">
 									<input
 										class="lib-input"
@@ -853,23 +1055,37 @@
 									<button class="lib-send-btn" id="lib-send">보내기 →</button>
 								</div>
 								<div class="lib-suggests">
-									<button class="lib-sug" data-q="오늘의 뉴스를 요약해 줘">오늘의 뉴스 요약</button>
-									<button class="lib-sug" data-q="마을 행사 일정을 알려줘">마을 행사 일정</button>
-									<button class="lib-sug" data-q="탐사 보도란 무엇인가요?">탐사 보도란?</button>
-									<button class="lib-sug" data-q="투고하려면 어떻게 하나요?">투고 방법</button>
+									<button class="lib-sug" data-q="오늘의 뉴스를 요약해 줘">
+										오늘의 뉴스 요약
+									</button>
+									<button class="lib-sug" data-q="마을 행사 일정을 알려줘">
+										마을 행사 일정
+									</button>
+									<button class="lib-sug" data-q="탐사 보도란 무엇인가요?">
+										탐사 보도란?
+									</button>
+									<button class="lib-sug" data-q="투고하려면 어떻게 하나요?">
+										투고 방법
+									</button>
 								</div>
 								<div class="lib-scroll-hint">
 									<span>아래로 스크롤</span>
 									<div class="lib-scroll-line"></div>
 								</div>
 							</div>
-							<div class="lib-section" id="lib-log-section" style="display: none">
+							<div
+								class="lib-section"
+								id="lib-log-section"
+								style="display: none"
+							>
 								<div id="lib-log">
 									<div class="lib-empty-note" id="lib-empty"></div>
 								</div>
 							</div>
 							<div class="lib-article-full" id="lib-full">
-								<button class="lib-af-back" id="lib-af-back">← 기사 목록으로</button>
+								<button class="lib-af-back" id="lib-af-back">
+									← 기사 목록으로
+								</button>
 								<div class="lib-af-section" id="lib-full-section"></div>
 								<div class="lib-af-title" id="lib-full-title"></div>
 								<div class="lib-af-meta" id="lib-full-meta"></div>
@@ -887,10 +1103,20 @@
 		<div id="auth-bg">
 			<div class="auth-box">
 				<div class="auth-tabs">
-					<button id="tab-login" class="auth-tab active" onclick="switchTab('login')">
+					<button
+						id="tab-login"
+						class="auth-tab active"
+						onclick="switchTab('login')"
+					>
 						로그인
 					</button>
-					<button id="tab-signup" class="auth-tab" onclick="switchTab('signup')">회원가입</button>
+					<button
+						id="tab-signup"
+						class="auth-tab"
+						onclick="switchTab('signup')"
+					>
+						회원가입
+					</button>
 				</div>
 
 				<!-- 로그인 폼 -->
@@ -920,7 +1146,12 @@
 				</form>
 
 				<!-- 회원가입 폼 -->
-				<form id="form-signup" class="auth-form" style="display: none" onsubmit="doSignup(event)">
+				<form
+					id="form-signup"
+					class="auth-form"
+					style="display: none"
+					onsubmit="doSignup(event)"
+				>
 					<div class="auth-field">
 						<label>아이디</label>
 						<input
@@ -956,7 +1187,11 @@
 							<input type="checkbox" id="signup-consent" required />
 							<span>개인정보 수집 및 이용에 동의합니다 <em>(필수)</em></span>
 						</label>
-						<button type="button" class="consent-detail-btn" onclick="toggleConsentDetail()">
+						<button
+							type="button"
+							class="consent-detail-btn"
+							onclick="toggleConsentDetail()"
+						>
 							자세히 보기 ▾
 						</button>
 						<div id="consent-detail" class="consent-detail">
@@ -985,8 +1220,8 @@
 				<div class="help-section">
 					<h3>📮 뉴스 마을이란?</h3>
 					<p>
-						뉴스 마을은 지역 미디어 플랫폼입니다. 마을과 시내를 탐험하며 다양한 기자들의 공간을
-						방문하고, 매일 배달되는 뉴스를 읽어보세요.
+						뉴스 마을은 지역 미디어 플랫폼입니다. 마을과 시내를 탐험하며 다양한
+						기자들의 공간을 방문하고, 매일 배달되는 뉴스를 읽어보세요.
 					</p>
 				</div>
 
@@ -995,8 +1230,8 @@
 				<div class="help-section">
 					<h3>📰 M북</h3>
 					<p>
-						매일 우체통에 뉴스레터 <strong>M북</strong>이 배달됩니다. 오늘의 주요 뉴스를 한눈에
-						확인하세요.
+						매일 우체통에 뉴스레터 <strong>M북</strong>이 배달됩니다. 오늘의
+						주요 뉴스를 한눈에 확인하세요.
 					</p>
 				</div>
 
@@ -1005,8 +1240,8 @@
 				<div class="help-section">
 					<h3>🌱 나무 키우기</h3>
 					<p>
-						M북의 기사를 읽을수록 내 집 나무가 자랍니다. 6개 기사를 모두 읽으면 가장 큰 나무로
-						성장해요. 매일 꾸준히 읽어보세요!
+						M북의 기사를 읽을수록 내 집 나무가 자랍니다. 6개 기사를 모두 읽으면
+						가장 큰 나무로 성장해요. 매일 꾸준히 읽어보세요!
 					</p>
 				</div>
 
@@ -1015,8 +1250,8 @@
 				<div class="help-section">
 					<h3>🏙 마을 &amp; 시내 탐험</h3>
 					<p>
-						마을 지도에서 각 건물을 클릭하면 해당 기자의 공간으로 이동합니다. 시내로 나가면 더 많은
-						공간을 만날 수 있어요.
+						마을 지도에서 각 건물을 클릭하면 해당 기자의 공간으로 이동합니다.
+						시내로 나가면 더 많은 공간을 만날 수 있어요.
 					</p>
 				</div>
 
@@ -1026,8 +1261,8 @@
 					<h3>🔐 로그인</h3>
 					<div class="help-kakao-badge">카카오 로그인 지원 예정</div>
 					<p>
-						로그인하면 나무 성장 기록이 저장됩니다. 곧 카카오 계정으로 간편하게 로그인할 수 있게
-						됩니다.
+						로그인하면 나무 성장 기록이 저장됩니다. 곧 카카오 계정으로 간편하게
+						로그인할 수 있게 됩니다.
 					</p>
 				</div>
 			</div>
@@ -1040,7 +1275,11 @@
 			<div class="modal-box">
 				<h2 id="modal-title"></h2>
 				<p id="modal-body"></p>
-				<div id="modal-nutrient" class="modal-nutrient-section" style="display: none">
+				<div
+					id="modal-nutrient"
+					class="modal-nutrient-section"
+					style="display: none"
+				>
 					<div id="modal-nutrient-content"></div>
 				</div>
 				<button class="modal-close" onclick="closeModal()">닫기</button>
