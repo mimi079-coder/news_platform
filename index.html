@@ -18,7 +18,7 @@
 <!-- 비석 팝업 -->
 <div id="sign-popup-overlay" onclick="closeSignPopup()">
   <div id="sign-popup-card" onclick="event.stopPropagation()">
-    <img src="sign_popup.PNG" alt="뉴스 마을 소개">
+    <img src="sign_popup.PNG" alt="뉴먼 마을 소개">
   </div>
 
 </div>
@@ -50,7 +50,7 @@
 <div id="screen-mailbox" class="screen">
   <div class="village-bg"></div>
   <div class="mailbox-wrapper" onclick="showMbook()">
-    <div class="mailbox-title">뉴스 마을</div>
+    <div class="mailbox-title">뉴먼 마을</div>
     <img src="post.png" alt="우체통">
     <div class="mailbox-hint">▶ 우체통을 클릭하세요 ◀</div>
   </div>
@@ -108,7 +108,7 @@
       <div class="read-indicator" id="ri-5"></div>
     </div>
 
-    <button class="mbook-enter-btn" onclick="goAfterMbook()">마을로 입장하기 →</button>
+    <button class="mbook-enter-btn" onclick="goAfterMbook()">뉴먼 마을로 입장하기 →</button>
   </div>
 </div>
 
@@ -162,7 +162,7 @@
         </div>
       </div>
       <div class="mh-nav">
-        <button class="mh-btn" onclick="switchTo('village')">← 마을로</button>
+        <button class="mh-btn" onclick="switchTo('village')">← 뉴먼 마을로</button>
         <button class="mh-btn" onclick="shareMyLink()">🔗 내 링크 공유</button>
         <button class="mh-btn" onclick="loadFriendsListView()">🌳 친구 나무 보기</button>
       </div>
@@ -239,17 +239,17 @@
 
   <div class="mh-bottom">
     <div class="mh-nav" style="margin-left:auto;">
-      <button class="mh-btn" onclick="switchTo('village')">← 마을로</button>
+      <button class="mh-btn" onclick="switchTo('village')">← 뉴먼 마을로</button>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════
-     SCREEN 3 · 마을 메인
+     SCREEN 3 · 뉴먼 마을 메인
 ══════════════════════════════ -->
 <div id="screen-village" class="screen">
   <div class="map-wrap">
-    <img src="village2.png" alt="마을">
+    <img src="village2.png" alt="뉴먼 마을">
 
     <div class="hotspot" id="hs-garden">
       <img class="hs-building" src="myGarden.png" alt="나의 정원" onclick="openGarden()">
@@ -267,13 +267,13 @@
     </div>
 
     <div class="hotspot" id="hs-villhall">
-      <img class="hs-building" src="center.PNG" alt="마을 광장" onclick="switchTo('gwangjang')">
-      <div class="hs-label">마을 광장</div>
+      <img class="hs-building" src="center.PNG" alt="뉴먼 마을 광장" onclick="switchTo('gwangjang')">
+      <div class="hs-label">뉴먼 마을 광장</div>
     </div>
 
     <div class="hotspot" id="hs-monument">
       <img class="hs-building" src="sign.PNG" alt="비석" onclick="openSignPopup()">
-      <div class="hs-label">비석 · 신문사 소개</div>
+      <div class="hs-label">비석 · 뉴먼 마을 소개</div>
     </div>
 
     <img src="toCity.png" id="nav-to-city" class="city-arrow" onclick="goToCity()" alt="시내로">
@@ -354,7 +354,7 @@
     <img class="city-sign" id="sign-haunted"   src="city/정민주해쉬태그.png"  alt="">
     <img class="city-sign" id="sign-airport"   src="city/김미정해쉬태그.png"  alt="">
 
-    <img src="toVillage.png" id="nav-to-village" class="back-fab" onclick="goToVillage()" alt="마을로">
+    <img src="toVillage.png" id="nav-to-village" class="back-fab" onclick="goToVillage()" alt="뉴먼 마을로">
     <button class="help-fab" onclick="openHelp()">?</button>
 
   </div>
@@ -471,7 +471,7 @@
           <div class="gj-panel" id="gj-panel-tip">
             <div class="gj-tip-form-header">
               <span class="gj-tip-title">제보란</span>
-              <span class="gj-tip-subtitle">탐정 하우스 · 뉴스 마을 편집부로 제보를 보내드립니다</span>
+              <span class="gj-tip-subtitle">탐정 하우스 · 뉴먼 마을 편집부로 제보를 보내드립니다</span>
             </div>
             <div class="gj-form-notice">제보 내용은 편집부에서만 확인합니다. 익명 제보 가능하며, 추가 연락이 필요한 경우 연락처를 남겨 주세요.</div>
             <label class="gj-anon-toggle">
@@ -655,7 +655,7 @@
         <button type="button" class="consent-detail-btn" onclick="toggleConsentDetail()">자세히 보기 ▾</button>
         <div id="consent-detail" class="consent-detail">
           · 수집 항목: 아이디, 비밀번호<br>
-          · 수집 목적: 뉴스 마을 서비스 제공 및 나무 성장 기록<br>
+          · 수집 목적: 뉴먼 마을 서비스 제공 및 나무 성장 기록<br>
           · 보유 기간: 서비스 탈퇴 시까지<br>
           · 동의 거부 시 서비스 이용이 제한될 수 있습니다.
         </div>

@@ -43,7 +43,7 @@ function onAuthChange() {
           <div class="nv-guest-banner-inner">
             <span class="nv-guest-badge">둘러보기 모드</span>
             <span class="nv-guest-msg">글 작성 · 댓글 · 제보 기능은 로그인 후 이용 가능합니다.</span>
-            <button class="nv-guest-login-btn" data-auth-action="open-login">마을 입장하기 →</button>
+            <button class="nv-guest-login-btn" data-auth-action="open-login">뉴먼 마을 입장하기 →</button>
           </div>`;
         wrap.prepend(banner);
         banner.querySelector('[data-auth-action="open-login"]')
